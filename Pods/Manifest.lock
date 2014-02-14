@@ -17,11 +17,14 @@ PODS:
   - AFNetworking/Serialization (2.1.0)
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
+  - TouchJSON (1.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - TouchJSON (~> 1.1)
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  TouchJSON: 9e53f4df141b7f972766292b00b46bccf29f179a
 
 COCOAPODS: 0.29.0

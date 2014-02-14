@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-TouchJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>92918A5C87104A998CD8E3A4</key>
+		<key>AF7CBDBFC5E74799B0F63E6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC4FE8E830F24771B18FE6EE</key>
+		<key>BE0AA9ADC1384D249679E2A8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F22F2A4457F04AD992E60EA1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

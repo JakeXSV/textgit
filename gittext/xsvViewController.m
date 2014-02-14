@@ -7,9 +7,12 @@
 //
 
 #import "xsvViewController.h"
+#import "AFNetworking.h"
+#import "CJSONDeserializer.h"
+#include "NSDictionary_JSONExtensions.h"
 
 @interface xsvViewController ()
-
+@property(nonatomic, strong)UIActivityIndicatorView* activityIndicator;
 @end
 
 @implementation xsvViewController
@@ -17,7 +20,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    _activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _activityIndicator.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.view addSubview: _activityIndicator];
 }
 
 - (void)didReceiveMemoryWarning
@@ -27,20 +32,33 @@
 }
 
 -(IBAction)loadApp:(id)sender{
-    NSLog(@"HIT");
-    if([self isValidGithub]){
-        [self performSegueWithIdentifier:@"successfulAuth" sender:self];
-    }else{
-        
-    }
+    [_activityIndicator startAnimating];
+    [self authenticate];
+    [_login setEnabled:(false)];
 }
 
--(BOOL)isValidGithub{
+-(void)successfulAuth{
+    [self performSegueWithIdentifier:@"successfulAuth" sender:self];
+}
+
+-(void)failedAuth{
+    NSLog(@"Failed Auth");
+    [_activityIndicator removeFromSuperview];
+    [_login setEnabled:(true)];
+}
+
+-(void)authenticate{
     NSString* user = [_username text];
     NSString* pwd = [_password text];
-    NSLog(@"%@",user);
-    NSLog(@"%@",pwd);
-    return false;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:user password:pwd];
+    NSString* url = @"https://@api.github.com/user";
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self successfulAuth];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self failedAuth];
+    }];
 }
 
 @end
