@@ -26,4 +26,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)loadApp:(id)sender{
+    NSLog(@"HIT");
+    if([self isValidGithub]){
+        [self performSegueWithIdentifier:@"successfulAuth" sender:self];
+    }else{
+        
+    }
+}
+
+-(BOOL)isValidGithub{
+    NSString* user = [_username text];
+    NSString* pwd = [_password text];
+    NSLog(@"%@",user);
+    NSLog(@"%@",pwd);
+    return false;
+}
+
 @end
