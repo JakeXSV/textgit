@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E2FB6E3D-3A6E-4015-AE39-AF0A3DFFB93C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>gittext</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B9F9E377-91CA-489B-9D6B-33F39E6C4882</key>
+		<string>https://github.com/Jakehp/textgit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>gittext.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B9F9E377-91CA-489B-9D6B-33F39E6C4882</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Jakehp/textgit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B9F9E377-91CA-489B-9D6B-33F39E6C4882</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B9F9E377-91CA-489B-9D6B-33F39E6C4882</string>
+			<key>IDESourceControlWCCName</key>
+			<string>textgit</string>
+		</dict>
+	</array>
+</dict>
+</plist>
