@@ -7,7 +7,6 @@
 //
 
 #import "xsvAppDelegate.h"
-#import <RestKit/RestKit.h>
 
 @implementation xsvAppDelegate
 
