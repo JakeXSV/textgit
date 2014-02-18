@@ -45,6 +45,13 @@
     NSLog(@"Failed Auth");
     [_activityIndicator removeFromSuperview];
     [_login setEnabled:(true)];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed"
+                                                    message:@"The credentials you provided are incorrect."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert removeFromSuperview];
 }
 
 -(void)authenticate{

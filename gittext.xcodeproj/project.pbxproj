@@ -21,6 +21,7 @@
 		1447AA9E18AD8DCE00140D43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1447AA8018AD8DCE00140D43 /* UIKit.framework */; };
 		1447AAA618AD8DCE00140D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1447AAA418AD8DCE00140D43 /* InfoPlist.strings */; };
 		1447AAA818AD8DCE00140D43 /* gittextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447AAA718AD8DCE00140D43 /* gittextTests.m */; };
+		147670C718B2DAAC00F60CB9 /* xsvWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147670C618B2DAAC00F60CB9 /* xsvWelcomeController.m */; };
 		29B24DEA257E435485773310 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3EC16FAF4149BD8DFCE032 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		1447AAA318AD8DCE00140D43 /* gittextTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gittextTests-Info.plist"; sourceTree = "<group>"; };
 		1447AAA518AD8DCE00140D43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1447AAA718AD8DCE00140D43 /* gittextTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gittextTests.m; sourceTree = "<group>"; };
+		147670C518B2DAAC00F60CB9 /* xsvWelcomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsvWelcomeController.h; sourceTree = "<group>"; };
+		147670C618B2DAAC00F60CB9 /* xsvWelcomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xsvWelcomeController.m; sourceTree = "<group>"; };
 		1F0258CBF45647029E6ADD6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,11 +121,13 @@
 		1447AA8218AD8DCE00140D43 /* gittext */ = {
 			isa = PBXGroup;
 			children = (
+				147670C418B2D9A300F60CB9 /* NotificationScreen */,
+				147670C318B2D99800F60CB9 /* RepoScreen */,
+				147670C218B2D99000F60CB9 /* WelcomeScreen */,
+				147670C118B2D96E00F60CB9 /* LoginScreen */,
 				1447AA8B18AD8DCE00140D43 /* xsvAppDelegate.h */,
 				1447AA8C18AD8DCE00140D43 /* xsvAppDelegate.m */,
 				1447AA8E18AD8DCE00140D43 /* Main.storyboard */,
-				1447AA9118AD8DCE00140D43 /* xsvViewController.h */,
-				1447AA9218AD8DCE00140D43 /* xsvViewController.m */,
 				1447AA9418AD8DCE00140D43 /* Images.xcassets */,
 				1447AA8318AD8DCE00140D43 /* Supporting Files */,
 			);
@@ -156,6 +161,38 @@
 				1447AAA418AD8DCE00140D43 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		147670C118B2D96E00F60CB9 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1447AA9118AD8DCE00140D43 /* xsvViewController.h */,
+				1447AA9218AD8DCE00140D43 /* xsvViewController.m */,
+			);
+			name = LoginScreen;
+			sourceTree = "<group>";
+		};
+		147670C218B2D99000F60CB9 /* WelcomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				147670C518B2DAAC00F60CB9 /* xsvWelcomeController.h */,
+				147670C618B2DAAC00F60CB9 /* xsvWelcomeController.m */,
+			);
+			name = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		147670C318B2D99800F60CB9 /* RepoScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = RepoScreen;
+			sourceTree = "<group>";
+		};
+		147670C418B2D9A300F60CB9 /* NotificationScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NotificationScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +330,7 @@
 			files = (
 				1447AA8D18AD8DCE00140D43 /* xsvAppDelegate.m in Sources */,
 				1447AA8918AD8DCE00140D43 /* main.m in Sources */,
+				147670C718B2DAAC00F60CB9 /* xsvWelcomeController.m in Sources */,
 				1447AA9318AD8DCE00140D43 /* xsvViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
