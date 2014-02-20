@@ -7,12 +7,10 @@
 //
 
 #import "xsvViewController.h"
-#import "AFNetworking.h"
-#import "CJSONDeserializer.h"
-#include "NSDictionary_JSONExtensions.h"
 
 @interface xsvViewController ()
 @property(nonatomic, strong)UIActivityIndicatorView* activityIndicator;
+@property(nonatomic, strong)xsvAlerter* localAlerter;
 @end
 
 @implementation xsvViewController
@@ -20,9 +18,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _localAlerter = [[xsvAlerter alloc]init];
     _activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     _activityIndicator.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.view addSubview: _activityIndicator];
+    self.login.buttonColor = [UIColor turquoiseColor];
+    self.login.shadowColor = [UIColor greenSeaColor];
+    self.login.shadowHeight = 3.0f;
+    self.login.cornerRadius = 6.0f;
+    self.login.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+    [self.login setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+    [self.login setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,21 +51,13 @@
     NSLog(@"Failed Auth");
     [_activityIndicator removeFromSuperview];
     [_login setEnabled:(true)];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed"
-                                                    message:@"The credentials you provided are incorrect."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    [alert removeFromSuperview];
+    [[_localAlerter createAlert:(@"Error.") messageText:(@"Invalid credentials, try again.") buttonText:(@"Ok")] show];
 }
 
 -(void)authenticate{
-    NSString* user = [_username text];
-    NSString* pwd = [_password text];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:user password:pwd];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:([_username text]) password:([_password text])];
     NSString* url = @"https://@api.github.com/user";
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self successfulAuth];

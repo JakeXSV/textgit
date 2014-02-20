@@ -22,6 +22,7 @@
 		1447AAA618AD8DCE00140D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1447AAA418AD8DCE00140D43 /* InfoPlist.strings */; };
 		1447AAA818AD8DCE00140D43 /* gittextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447AAA718AD8DCE00140D43 /* gittextTests.m */; };
 		147670C718B2DAAC00F60CB9 /* xsvWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147670C618B2DAAC00F60CB9 /* xsvWelcomeController.m */; };
+		23CA461018B5A8E800797FD5 /* xsvAlerter.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CA460F18B5A8E700797FD5 /* xsvAlerter.m */; };
 		29B24DEA257E435485773310 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3EC16FAF4149BD8DFCE032 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		147670C518B2DAAC00F60CB9 /* xsvWelcomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsvWelcomeController.h; sourceTree = "<group>"; };
 		147670C618B2DAAC00F60CB9 /* xsvWelcomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xsvWelcomeController.m; sourceTree = "<group>"; };
 		1F0258CBF45647029E6ADD6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		23CA460E18B5A8E700797FD5 /* xsvAlerter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsvAlerter.h; sourceTree = "<group>"; };
+		23CA460F18B5A8E700797FD5 /* xsvAlerter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xsvAlerter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,7 @@
 		1447AA8218AD8DCE00140D43 /* gittext */ = {
 			isa = PBXGroup;
 			children = (
+				23CA461118B5AC6900797FD5 /* Helpers */,
 				147670C418B2D9A300F60CB9 /* NotificationScreen */,
 				147670C318B2D99800F60CB9 /* RepoScreen */,
 				147670C218B2D99000F60CB9 /* WelcomeScreen */,
@@ -193,6 +197,15 @@
 			children = (
 			);
 			name = NotificationScreen;
+			sourceTree = "<group>";
+		};
+		23CA461118B5AC6900797FD5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				23CA460E18B5A8E700797FD5 /* xsvAlerter.h */,
+				23CA460F18B5A8E700797FD5 /* xsvAlerter.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1447AA8D18AD8DCE00140D43 /* xsvAppDelegate.m in Sources */,
+				23CA461018B5A8E800797FD5 /* xsvAlerter.m in Sources */,
 				1447AA8918AD8DCE00140D43 /* main.m in Sources */,
 				147670C718B2DAAC00F60CB9 /* xsvWelcomeController.m in Sources */,
 				1447AA9318AD8DCE00140D43 /* xsvViewController.m in Sources */,

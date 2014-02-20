@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FlatUIKit.h>
+#import "AFNetworking.h"
+#import "xsvAlerter.h"
 
 @interface xsvViewController : UIViewController
 
-@property(nonatomic, weak) IBOutlet UIButton* login;
+@property(nonatomic, weak) IBOutlet FUIButton* login;
 @property(nonatomic, weak) IBOutlet UITextField* username;
 @property(nonatomic, weak) IBOutlet UITextField* password;
 
