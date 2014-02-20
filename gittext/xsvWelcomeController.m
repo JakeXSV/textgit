@@ -2,14 +2,17 @@
 //  xsvWelcomeController.m
 //  gittext
 //
-//  Created by jprather on 2/17/14.
+//  Created by Jake on 2/19/14.
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
 #import "xsvWelcomeController.h"
 
-@interface xsvWelcomeController()
-
+@interface xsvWelcomeController ()
+@property(nonatomic, strong)UIActivityIndicatorView* activityIndicator;
+@property(nonatomic, strong)xsvAlerter* localAlerter;
+@property(nonatomic, strong)xsvStyler* localStyler;
+@property(nonatomic, strong)xsvIndicator* localIndicator;
 @end
 
 @implementation xsvWelcomeController
@@ -17,13 +20,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"HIT WELCOME CONTROLLER");
-
-    _repoTab = [self.tabBar.items objectAtIndex:0];
-    _notificationTab = [self.tabBar.items objectAtIndex:1];
-    
-    _repoTab.title = @"Repositories";
-    _notificationTab.title = @"Notifications";
+    _localAlerter = [[xsvAlerter alloc]init];
+    _localStyler = [[xsvStyler alloc]init];
+    _localIndicator = [[xsvIndicator alloc]init];
     
 }
 
@@ -34,3 +33,4 @@
 }
 
 @end
+

@@ -2,16 +2,16 @@
 //  xsvWelcomeController.h
 //  gittext
 //
-//  Created by jprather on 2/17/14.
+//  Created by Jake on 2/19/14.
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <FlatUIKit.h>
+#import "xsvAlerter.h"
+#import "xsvStyler.h"
+#import "xsvIndicator.h"
 
-@interface xsvWelcomeController : UITabBarController
-
-@property(nonatomic, weak) IBOutlet UITabBarController* tabController;
-@property(nonatomic, weak) IBOutlet UITabBarItem* repoTab;
-@property(nonatomic, weak) IBOutlet UITabBarItem* notificationTab;
+@interface xsvWelcomeController : UIViewController
 
 @end

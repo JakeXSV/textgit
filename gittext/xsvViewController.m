@@ -11,6 +11,8 @@
 @interface xsvViewController ()
 @property(nonatomic, strong)UIActivityIndicatorView* activityIndicator;
 @property(nonatomic, strong)xsvAlerter* localAlerter;
+@property(nonatomic, strong)xsvStyler* localStyler;
+@property(nonatomic, strong)xsvIndicator* localIndicator;
 @end
 
 @implementation xsvViewController
@@ -19,16 +21,10 @@
 {
     [super viewDidLoad];
     _localAlerter = [[xsvAlerter alloc]init];
-    _activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    _activityIndicator.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
-    [self.view addSubview: _activityIndicator];
-    self.login.buttonColor = [UIColor turquoiseColor];
-    self.login.shadowColor = [UIColor greenSeaColor];
-    self.login.shadowHeight = 3.0f;
-    self.login.cornerRadius = 6.0f;
-    self.login.titleLabel.font = [UIFont boldFlatFontOfSize:16];
-    [self.login setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
-    [self.login setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+    _localStyler = [[xsvStyler alloc]init];
+    _localIndicator = [[xsvIndicator alloc]init];
+    [self.view addSubview: [_localIndicator createUIViewIndicator:(self)]];
+    [_localStyler styleButton:(_login)];
 }
 
 - (void)didReceiveMemoryWarning
