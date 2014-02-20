@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Pods-FlatUIKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Pods-TouchJSON.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -22,12 +27,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>464CDC937D8A4B2CACA216FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>64E20899BA45446B92CD4CB4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AF7CBDBFC5E74799B0F63E6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B11C53DC0BC542EF81E7E0BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BE0AA9ADC1384D249679E2A8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDE4C6275A30404582E2AF7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

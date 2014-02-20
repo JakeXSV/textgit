@@ -12,7 +12,7 @@
 #import "xsvStyler.h"
 #import "xsvIndicator.h"
 
-@interface xsvWelcomeController : UITableViewController
+@interface xsvWelcomeController : UIViewController
 
 @property(nonatomic, weak) IBOutlet FUISegmentedControl* segControl;
 

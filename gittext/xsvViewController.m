@@ -40,6 +40,7 @@
 }
 
 -(void)successfulAuth{
+    [_activityIndicator removeFromSuperview];
     [self performSegueWithIdentifier:@"successfulAuth" sender:self];
 }
 

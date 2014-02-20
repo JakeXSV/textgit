@@ -20,8 +20,18 @@
     [button setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
 }
 
--(void)styleSegmentedControl:(FUISegmentedControl*)segControl UITableViewController:(UITableViewController*)view{
-    [segControl setFrame:CGRectMake(0, 0, CGRectGetWidth(segControl.bounds), 44)];
+-(void)styleSegmentedControl:(FUISegmentedControl*)segControl{
+    segControl.selectedFont = [UIFont boldFlatFontOfSize:16];
+    segControl.selectedFontColor = [UIColor cloudsColor];
+    
+    segControl.deselectedFont = [UIFont flatFontOfSize:16];
+    segControl.deselectedFontColor = [UIColor cloudsColor];
+    
+    segControl.selectedColor = [UIColor greenSeaColor];
+    segControl.deselectedColor = [UIColor turquoiseColor];
+    
+    segControl.dividerColor = [UIColor midnightBlueColor];
+    segControl.cornerRadius = 15;
 }
 
 @end

@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <FlatUIKit.h>
 
 @interface xsvStyler : NSObject
 
 -(void)styleButton:(FUIButton*)button;
--(void)styleSegmentedControl:(FUISegmentedControl*)segControl UITableViewController:(UITableViewController*)view;
+-(void)styleSegmentedControl:(FUISegmentedControl*)segControl;
 
 @end

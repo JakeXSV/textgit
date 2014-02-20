@@ -20,8 +20,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"HIT WELCOME IMPL");
     _localStyler = [[xsvStyler alloc]init];
+    [_localStyler styleSegmentedControl:(_segControl)];
 }
+
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
+
 
 @end
 
