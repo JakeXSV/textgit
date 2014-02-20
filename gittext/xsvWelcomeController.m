@@ -18,14 +18,13 @@
 {
     [super viewDidLoad];
     NSLog(@"HIT WELCOME CONTROLLER");
-    // Assign tab bar item with titles
-    UITabBarController *tabBarController = (UITabBarController *)self.view;
-    UITabBar *tabBar = tabBarController.tabBar;
-    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
-    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+
+    _repoTab = [self.tabBar.items objectAtIndex:0];
+    _notificationTab = [self.tabBar.items objectAtIndex:1];
     
-    tabBarItem1.title = @"Home";
-    tabBarItem2.title = @"Maps";
+    _repoTab.title = @"Repositories";
+    _notificationTab.title = @"Notifications";
+    
 }
 
 - (void)didReceiveMemoryWarning

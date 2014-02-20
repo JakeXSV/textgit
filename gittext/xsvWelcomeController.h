@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface xsvWelcomeController : UIViewController
+@interface xsvWelcomeController : UITabBarController
 
 @property(nonatomic, weak) IBOutlet UITabBarController* tabController;
 @property(nonatomic, weak) IBOutlet UITabBarItem* repoTab;
