@@ -20,4 +20,8 @@
     [button setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
 }
 
+-(void)styleSegmentedControl:(FUISegmentedControl*)segControl UITableViewController:(UITableViewController*)view{
+    [segControl setFrame:CGRectMake(0, 0, CGRectGetWidth(segControl.bounds), 44)];
+}
+
 @end

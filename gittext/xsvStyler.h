@@ -12,5 +12,6 @@
 @interface xsvStyler : NSObject
 
 -(void)styleButton:(FUIButton*)button;
+-(void)styleSegmentedControl:(FUISegmentedControl*)segControl UITableViewController:(UITableViewController*)view;
 
 @end

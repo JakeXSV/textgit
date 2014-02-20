@@ -20,16 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _localAlerter = [[xsvAlerter alloc]init];
     _localStyler = [[xsvStyler alloc]init];
-    _localIndicator = [[xsvIndicator alloc]init];
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
