@@ -12,6 +12,8 @@
 #import "xsvAlerter.h"
 #import "xsvStyler.h"
 #import "xsvIndicator.h"
+#import "xsvGithubDataController.h"
+#import "xsvNetworker.h"
 
 @interface xsvViewController : UIViewController
 

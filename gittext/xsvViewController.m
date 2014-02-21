@@ -13,6 +13,7 @@
 @property(nonatomic, strong)xsvAlerter* localAlerter;
 @property(nonatomic, strong)xsvStyler* localStyler;
 @property(nonatomic, strong)xsvIndicator* localIndicator;
+@property(nonatomic, strong)xsvNetworker* localNetworker;
 @end
 
 @implementation xsvViewController
@@ -23,6 +24,7 @@
     _localAlerter = [[xsvAlerter alloc]init];
     _localStyler = [[xsvStyler alloc]init];
     _localIndicator = [[xsvIndicator alloc]init];
+    _localNetworker = [[xsvNetworker alloc]init];
     [self.view addSubview: [_localIndicator createUIViewIndicator:(self)]];
     [_localStyler styleButton:(_login)];
 }
@@ -33,10 +35,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"successfulAuth"])
+    {
+        xsvGithubDataController* wc = segue.destinationViewController;
+        wc.localNetworker = _localNetworker;
+    }
+}
+
 -(IBAction)loadApp:(id)sender{
     [_activityIndicator startAnimating];
     [self authenticate];
     [_login setEnabled:(false)];
+}
+
+-(void)authenticate{
+    [_localNetworker setCredentials:([_username text]) pass:([_password text])];
+    AFHTTPRequestOperationManager *manager = [_localNetworker getConfiguredManager];
+    NSString* url = [_localNetworker getAuthURL];
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        [self successfulAuth];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        [self failedAuth];
+    }];
 }
 
 -(void)successfulAuth{
@@ -49,18 +73,6 @@
     [_activityIndicator removeFromSuperview];
     [_login setEnabled:(true)];
     [[_localAlerter createAlert:(@"Error.") messageText:(@"Invalid credentials, try again.") buttonText:(@"Ok")] show];
-}
-
--(void)authenticate{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:([_username text]) password:([_password text])];
-    NSString* url = @"https://@api.github.com/user";
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self successfulAuth];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self failedAuth];
-    }];
 }
 
 @end

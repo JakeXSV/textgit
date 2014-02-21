@@ -21,10 +21,11 @@
 		1447AA9E18AD8DCE00140D43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1447AA8018AD8DCE00140D43 /* UIKit.framework */; };
 		1447AAA618AD8DCE00140D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1447AAA418AD8DCE00140D43 /* InfoPlist.strings */; };
 		1447AAA818AD8DCE00140D43 /* gittextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447AAA718AD8DCE00140D43 /* gittextTests.m */; };
+		23BF093C18B70C7000654E0D /* xsvNetworker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BF093B18B70C7000654E0D /* xsvNetworker.m */; };
+		23BF094018B7138A00654E0D /* xsvGithubDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BF093F18B7138A00654E0D /* xsvGithubDataController.m */; };
 		23CA461018B5A8E800797FD5 /* xsvAlerter.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CA460F18B5A8E700797FD5 /* xsvAlerter.m */; };
 		23CA461418B5AEA600797FD5 /* xsvStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CA461318B5AEA600797FD5 /* xsvStyler.m */; };
 		23CA461718B5AF8100797FD5 /* xsvIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CA461618B5AF8100797FD5 /* xsvIndicator.m */; };
-		23CA461A18B5BCF100797FD5 /* xsvWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CA461918B5BCF100797FD5 /* xsvWelcomeController.m */; };
 		29B24DEA257E435485773310 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3EC16FAF4149BD8DFCE032 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,14 +61,16 @@
 		1447AAA518AD8DCE00140D43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1447AAA718AD8DCE00140D43 /* gittextTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gittextTests.m; sourceTree = "<group>"; };
 		1F0258CBF45647029E6ADD6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		23BF093A18B70C7000654E0D /* xsvNetworker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsvNetworker.h; sourceTree = "<group>"; };
+		23BF093B18B70C7000654E0D /* xsvNetworker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xsvNetworker.m; sourceTree = "<group>"; };
+		23BF093E18B7138A00654E0D /* xsvGithubDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsvGithubDataController.h; sourceTree = "<group>"; };
+		23BF093F18B7138A00654E0D /* xsvGithubDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xsvGithubDataController.m; sourceTree = "<group>"; };
 		23CA460E18B5A8E700797FD5 /* xsvAlerter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsvAlerter.h; sourceTree = "<group>"; };
 		23CA460F18B5A8E700797FD5 /* xsvAlerter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xsvAlerter.m; sourceTree = "<group>"; };
 		23CA461218B5AEA600797FD5 /* xsvStyler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsvStyler.h; sourceTree = "<group>"; };
 		23CA461318B5AEA600797FD5 /* xsvStyler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xsvStyler.m; sourceTree = "<group>"; };
 		23CA461518B5AF8100797FD5 /* xsvIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsvIndicator.h; sourceTree = "<group>"; };
 		23CA461618B5AF8100797FD5 /* xsvIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xsvIndicator.m; sourceTree = "<group>"; };
-		23CA461818B5BCF100797FD5 /* xsvWelcomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsvWelcomeController.h; sourceTree = "<group>"; };
-		23CA461918B5BCF100797FD5 /* xsvWelcomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xsvWelcomeController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				23CA461118B5AC6900797FD5 /* Helpers */,
-				147670C418B2D9A300F60CB9 /* NotificationScreen */,
-				147670C318B2D99800F60CB9 /* RepoScreen */,
-				147670C218B2D99000F60CB9 /* WelcomeScreen */,
+				23BF093D18B7120800654E0D /* GithubDataScreen */,
 				147670C118B2D96E00F60CB9 /* LoginScreen */,
 				1447AA8B18AD8DCE00140D43 /* xsvAppDelegate.h */,
 				1447AA8C18AD8DCE00140D43 /* xsvAppDelegate.m */,
@@ -182,27 +183,13 @@
 			name = LoginScreen;
 			sourceTree = "<group>";
 		};
-		147670C218B2D99000F60CB9 /* WelcomeScreen */ = {
+		23BF093D18B7120800654E0D /* GithubDataScreen */ = {
 			isa = PBXGroup;
 			children = (
-				23CA461818B5BCF100797FD5 /* xsvWelcomeController.h */,
-				23CA461918B5BCF100797FD5 /* xsvWelcomeController.m */,
+				23BF093E18B7138A00654E0D /* xsvGithubDataController.h */,
+				23BF093F18B7138A00654E0D /* xsvGithubDataController.m */,
 			);
-			name = WelcomeScreen;
-			sourceTree = "<group>";
-		};
-		147670C318B2D99800F60CB9 /* RepoScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = RepoScreen;
-			sourceTree = "<group>";
-		};
-		147670C418B2D9A300F60CB9 /* NotificationScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = NotificationScreen;
+			name = GithubDataScreen;
 			sourceTree = "<group>";
 		};
 		23CA461118B5AC6900797FD5 /* Helpers */ = {
@@ -214,6 +201,8 @@
 				23CA461318B5AEA600797FD5 /* xsvStyler.m */,
 				23CA461518B5AF8100797FD5 /* xsvIndicator.h */,
 				23CA461618B5AF8100797FD5 /* xsvIndicator.m */,
+				23BF093A18B70C7000654E0D /* xsvNetworker.h */,
+				23BF093B18B70C7000654E0D /* xsvNetworker.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -351,12 +340,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23CA461A18B5BCF100797FD5 /* xsvWelcomeController.m in Sources */,
 				23CA461718B5AF8100797FD5 /* xsvIndicator.m in Sources */,
 				23CA461418B5AEA600797FD5 /* xsvStyler.m in Sources */,
+				23BF093C18B70C7000654E0D /* xsvNetworker.m in Sources */,
 				1447AA8D18AD8DCE00140D43 /* xsvAppDelegate.m in Sources */,
 				23CA461018B5A8E800797FD5 /* xsvAlerter.m in Sources */,
 				1447AA8918AD8DCE00140D43 /* main.m in Sources */,
+				23BF094018B7138A00654E0D /* xsvGithubDataController.m in Sources */,
 				1447AA9318AD8DCE00140D43 /* xsvViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
