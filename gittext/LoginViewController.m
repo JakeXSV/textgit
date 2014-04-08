@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LoginViewController.h"
 
-@interface ViewController ()
+@interface LoginViewController ()
 @property(nonatomic, strong)UIActivityIndicatorView* activityIndicator;
 @property(nonatomic, strong)Alerter* localAlerter;
 @property(nonatomic, strong)Styler* localStyler;
@@ -16,7 +16,7 @@
 @property(nonatomic, strong)Networker* localNetworker;
 @end
 
-@implementation ViewController
+@implementation LoginViewController
 
 - (void)viewDidLoad
 {
@@ -39,7 +39,7 @@
 {
     if ([segue.identifier isEqualToString:@"successfulAuth"])
     {
-        GithubDataController* wc = segue.destinationViewController;
+        GithubDataViewController* wc = segue.destinationViewController;
         wc.localNetworker = _localNetworker;
     }
 }

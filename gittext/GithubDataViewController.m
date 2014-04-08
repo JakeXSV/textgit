@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
-#import "GithubDataController.h"
+#import "GithubDataViewController.h"
 
-@interface GithubDataController ()
+@interface GithubDataViewController ()
 @property(nonatomic, strong)UIActivityIndicatorView* activityIndicator;
 @property(nonatomic, strong)Alerter* localAlerter;
 @property(nonatomic, strong)Styler* localStyler;
 @property(nonatomic, strong)Indicator* localIndicator;
 @end
 
-@implementation GithubDataController
+@implementation GithubDataViewController
 
 - (void)viewDidLoad
 {

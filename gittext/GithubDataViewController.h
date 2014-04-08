@@ -14,7 +14,7 @@
 #import "Indicator.h"
 #import "Networker.h"
 
-@interface GithubDataController : UIViewController
+@interface GithubDataViewController : UIViewController
 
 @property(nonatomic, weak) IBOutlet FUISegmentedControl* segControl;
 @property(nonatomic, strong) Networker* localNetworker;

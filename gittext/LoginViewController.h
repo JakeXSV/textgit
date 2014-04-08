@@ -12,10 +12,10 @@
 #import "Alerter.h"
 #import "Styler.h"
 #import "Indicator.h"
-#import "GithubDataController.h"
+#import "GithubDataViewController.h"
 #import "Networker.h"
 
-@interface ViewController : UIViewController
+@interface LoginViewController : UIViewController
 
 @property(nonatomic, weak) IBOutlet FUIButton* login;
 @property(nonatomic, weak) IBOutlet FUITextField* username;
