@@ -1,14 +1,14 @@
 //
-//  xsvStyler.m
+//  Styler.m
 //  gittext
 //
 //  Created by Jake on 2/19/14.
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
-#import "xsvStyler.h"
+#import "Styler.h"
 
-@implementation xsvStyler
+@implementation Styler
 
 -(void)styleButton:(FUIButton*)button{
     button.buttonColor = [UIColor turquoiseColor];

@@ -1,5 +1,5 @@
 //
-//  xsvGithubDataController.h
+//  GithubDataController.h
 //  gittext
 //
 //  Created by Jake on 2/19/14.
@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <FlatUIKit.h>
 #import <AFNetworking.h>
-#import "xsvAlerter.h"
-#import "xsvStyler.h"
-#import "xsvIndicator.h"
-#import "xsvNetworker.h"
+#import "Alerter.h"
+#import "Styler.h"
+#import "Indicator.h"
+#import "Networker.h"
 
-@interface xsvGithubDataController : UIViewController
+@interface GithubDataController : UIViewController
 
 @property(nonatomic, weak) IBOutlet FUISegmentedControl* segControl;
-@property(nonatomic, strong) xsvNetworker* localNetworker;
+@property(nonatomic, strong) Networker* localNetworker;
 
 @end

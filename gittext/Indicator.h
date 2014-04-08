@@ -1,5 +1,5 @@
 //
-//  xsvIndicator.h
+//  Indicator.h
 //  gittext
 //
 //  Created by Jake on 2/19/14.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <FlatUIKit.h>
 
-@interface xsvIndicator : NSObject
+@interface Indicator : NSObject
 
 -(UIActivityIndicatorView*)createUIViewIndicator:(UIViewController*)view;
 

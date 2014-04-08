@@ -1,14 +1,14 @@
 //
-//  xsvAppDelegate.m
+//  AppDelegate.m
 //  gittext
 //
 //  Created by Jacob Henry Prather on 2/13/14.
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
-#import "xsvAppDelegate.h"
+#import "AppDelegate.h"
 
-@implementation xsvAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

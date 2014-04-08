@@ -1,5 +1,5 @@
 //
-//  xsvAppDelegate.h
+//  AppDelegate.h
 //  gittext
 //
 //  Created by Jacob Henry Prather on 2/13/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface xsvAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

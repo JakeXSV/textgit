@@ -1,14 +1,14 @@
 //
-//  xsvNetworker.m
+//  Networker.m
 //  gittext
 //
 //  Created by Jake on 2/20/14.
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
-#import "xsvNetworker.h"
+#import "Networker.h"
 
-@implementation xsvNetworker
+@implementation Networker
 
 
 -(AFHTTPRequestOperationManager*)getConfiguredManager{

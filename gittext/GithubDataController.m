@@ -1,26 +1,26 @@
 //
-//  xsvWelcomeController.m
+//  WelcomeController.m
 //  gittext
 //
 //  Created by Jake on 2/19/14.
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
-#import "xsvGithubDataController.h"
+#import "GithubDataController.h"
 
-@interface xsvGithubDataController ()
+@interface GithubDataController ()
 @property(nonatomic, strong)UIActivityIndicatorView* activityIndicator;
-@property(nonatomic, strong)xsvAlerter* localAlerter;
-@property(nonatomic, strong)xsvStyler* localStyler;
-@property(nonatomic, strong)xsvIndicator* localIndicator;
+@property(nonatomic, strong)Alerter* localAlerter;
+@property(nonatomic, strong)Styler* localStyler;
+@property(nonatomic, strong)Indicator* localIndicator;
 @end
 
-@implementation xsvGithubDataController
+@implementation GithubDataController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _localStyler = [[xsvStyler alloc]init];
+    _localStyler = [[Styler alloc]init];
     [_localStyler styleSegmentedControl:(_segControl)];
     [self getRepos];
 }

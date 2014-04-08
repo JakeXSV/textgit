@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Xsv View Controller-->
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="xsvViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hp7-6e-K0x"/>
                         <viewControllerLayoutGuide type="bottom" id="abu-IY-p5e"/>
@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="-625" y="229"/>
         </scene>
-        <!--Xsv Github Data Controller-->
+        <!--Github Data Controller-->
         <scene sceneID="qKR-Pm-Hap">
             <objects>
-                <viewController id="grQ-ye-rMK" customClass="xsvGithubDataController" sceneMemberID="viewController">
+                <viewController id="grQ-ye-rMK" customClass="GithubDataController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7pn-OT-H0a"/>
                         <viewControllerLayoutGuide type="bottom" id="JsW-iH-Leq"/>

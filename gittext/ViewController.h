@@ -1,5 +1,5 @@
 //
-//  xsvViewController.h
+//  ViewController.h
 //  gittext
 //
 //  Created by Jacob Henry Prather on 2/13/14.
@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <FlatUIKit.h>
 #import "AFNetworking.h"
-#import "xsvAlerter.h"
-#import "xsvStyler.h"
-#import "xsvIndicator.h"
-#import "xsvGithubDataController.h"
-#import "xsvNetworker.h"
+#import "Alerter.h"
+#import "Styler.h"
+#import "Indicator.h"
+#import "GithubDataController.h"
+#import "Networker.h"
 
-@interface xsvViewController : UIViewController
+@interface ViewController : UIViewController
 
 @property(nonatomic, weak) IBOutlet FUIButton* login;
 @property(nonatomic, weak) IBOutlet FUITextField* username;

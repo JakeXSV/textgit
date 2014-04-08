@@ -1,30 +1,30 @@
 //
-//  xsvViewController.m
+//  ViewController.m
 //  gittext
 //
 //  Created by Jacob Henry Prather on 2/13/14.
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
-#import "xsvViewController.h"
+#import "ViewController.h"
 
-@interface xsvViewController ()
+@interface ViewController ()
 @property(nonatomic, strong)UIActivityIndicatorView* activityIndicator;
-@property(nonatomic, strong)xsvAlerter* localAlerter;
-@property(nonatomic, strong)xsvStyler* localStyler;
-@property(nonatomic, strong)xsvIndicator* localIndicator;
-@property(nonatomic, strong)xsvNetworker* localNetworker;
+@property(nonatomic, strong)Alerter* localAlerter;
+@property(nonatomic, strong)Styler* localStyler;
+@property(nonatomic, strong)Indicator* localIndicator;
+@property(nonatomic, strong)Networker* localNetworker;
 @end
 
-@implementation xsvViewController
+@implementation ViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _localAlerter = [[xsvAlerter alloc]init];
-    _localStyler = [[xsvStyler alloc]init];
-    _localIndicator = [[xsvIndicator alloc]init];
-    _localNetworker = [[xsvNetworker alloc]init];
+    _localAlerter = [[Alerter alloc]init];
+    _localStyler = [[Styler alloc]init];
+    _localIndicator = [[Indicator alloc]init];
+    _localNetworker = [[Networker alloc]init];
     [self.view addSubview: [_localIndicator createUIViewIndicator:(self)]];
     [_localStyler styleButton:(_login)];
 }
@@ -39,7 +39,7 @@
 {
     if ([segue.identifier isEqualToString:@"successfulAuth"])
     {
-        xsvGithubDataController* wc = segue.destinationViewController;
+        GithubDataController* wc = segue.destinationViewController;
         wc.localNetworker = _localNetworker;
     }
 }

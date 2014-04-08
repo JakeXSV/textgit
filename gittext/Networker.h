@@ -1,5 +1,5 @@
 //
-//  xsvNetworker.h
+//  Networker.h
 //  gittext
 //
 //  Created by Jake on 2/20/14.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
 
-@interface xsvNetworker : NSObject
+@interface Networker : NSObject
 
 @property(nonatomic, strong) NSString* username;
 @property(nonatomic, strong) NSString* password;

@@ -1,14 +1,14 @@
 //
-//  xsvIndicator.m
+//  Indicator.m
 //  gittext
 //
 //  Created by Jake on 2/19/14.
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
-#import "xsvIndicator.h"
+#import "Indicator.h"
 
-@implementation xsvIndicator
+@implementation Indicator
 
 -(UIActivityIndicatorView*)createUIViewIndicator:(UIViewController*)view{
     UIActivityIndicatorView* activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];

@@ -1,5 +1,5 @@
 //
-//  xsvAlerter.h
+//  Alerter.h
 //  gittext
 //
 //  Created by Jake on 2/19/14.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <FlatUIKit.h>
 
-@interface xsvAlerter : NSObject
+@interface Alerter : NSObject
 
 -(FUIAlertView*)createAlert:(NSString*)title messageText:(NSString*) message buttonText:(NSString*) buttonText;
 
