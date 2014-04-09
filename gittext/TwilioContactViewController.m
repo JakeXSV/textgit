@@ -2,7 +2,7 @@
 //  TwilioContactViewController.m
 //  gittext
 //
-//  Created by Jacob Henry Prather on 4/8/14.
+//  Created by Jake on 4/8/14.
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 

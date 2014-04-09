@@ -2,7 +2,7 @@
 //  gittextTests.m
 //  gittextTests
 //
-//  Created by Jacob Henry Prather on 2/13/14.
+//  Created by Jake on 2/13/14.
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
