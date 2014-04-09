@@ -1,5 +1,7 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/FlatUIKit" "${PODS_ROOT}/Headers/TouchJSON"
-OTHER_CFLAGS = $(inherited) "-isystem${PODS_ROOT}/Headers" "-isystem${PODS_ROOT}/Headers/AFNetworking" "-isystem${PODS_ROOT}/Headers/FlatUIKit" "-isystem${PODS_ROOT}/Headers/TouchJSON"
-OTHER_LDFLAGS = -ObjC -framework CoreGraphics -framework CoreText -framework Foundation -framework MobileCoreServices -framework Security -framework SystemConfiguration
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/FlatUIKit" "${PODS_ROOT}/Headers/TouchJSON" "${PODS_ROOT}/Headers/TwilioSDK"
+LIBRARY_SEARCH_PATHS = $(PODS_ROOT)/TwilioSDK/Libraries
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/AFNetworking" -isystem "${PODS_ROOT}/Headers/FlatUIKit" -isystem "${PODS_ROOT}/Headers/TouchJSON" -isystem "${PODS_ROOT}/Headers/TwilioSDK"
+OTHER_LDFLAGS = -ObjC -lTwilioClient -lcrypto -lssl -framework AVFoundation -framework AudioToolbox -framework CFNetwork -framework CoreGraphics -framework CoreText -framework Foundation -framework MobileCoreServices -framework Security -framework SystemConfiguration
+OTHER_LD_FLAGS = $(inherited) -ObjC -all_load
 PODS_ROOT = ${SRCROOT}/Pods

@@ -19,15 +19,18 @@ PODS:
     - AFNetworking/NSURLConnection
   - FlatUIKit (1.3)
   - TouchJSON (1.1)
+  - TwilioSDK (1.1.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - FlatUIKit
   - TouchJSON (~> 1.1)
+  - TwilioSDK
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   FlatUIKit: 3b32b52bb3c266477709cfe4812ab2c877ae942b
   TouchJSON: 9e53f4df141b7f972766292b00b46bccf29f179a
+  TwilioSDK: 7b4ffd001e3950a86ab1387d483dcd9071765351
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.31.1

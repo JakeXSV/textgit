@@ -1,0 +1,3 @@
+PODS_TWILIOSDK_LIBRARY_SEARCH_PATHS = $(PODS_ROOT)/TwilioSDK/Libraries
+PODS_TWILIOSDK_OTHER_LDFLAGS = -lTwilioClient -lcrypto -lssl -framework AVFoundation -framework AudioToolbox -framework CFNetwork -framework SystemConfiguration
+PODS_TWILIOSDK_OTHER_LD_FLAGS = $(inherited) -ObjC -all_load

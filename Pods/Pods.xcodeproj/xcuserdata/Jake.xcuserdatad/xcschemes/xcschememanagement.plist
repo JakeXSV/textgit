@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-TwilioSDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -26,27 +31,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>464CDC937D8A4B2CACA216FF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>64E20899BA45446B92CD4CB4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B11C53DC0BC542EF81E7E0BF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CDE4C6275A30404582E2AF7D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
