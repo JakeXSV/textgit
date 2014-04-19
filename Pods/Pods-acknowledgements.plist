@@ -14,7 +14,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright (c) 2013 AFNetworking (http://afnetworking.com/)
+			<string>Copyright (c) 2013-2014 AFNetworking (http://afnetworking.com/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -100,14 +100,6 @@ or implied, of Jonathan Wight.
 </string>
 			<key>Title</key>
 			<string>TouchJSON</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
-			<string>Copyright 2011-2012 Twilio. All rights reserved. Use of this software is subject to the terms and conditions of the Twilio Terms of Service located at http://www.twilio.com/legal/tos</string>
-			<key>Title</key>
-			<string>TwilioSDK</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

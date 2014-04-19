@@ -58,7 +58,7 @@
 
 -(void)authenticate{
     [_localNetworker setCredentials:([_username text]) pass:([_password text])];
-    AFHTTPRequestOperationManager *manager = [_localNetworker getConfiguredManager];
+    AFHTTPRequestOperationManager *manager = [_localNetworker getGitHubConfiguredManager];
     NSString* url = [_localNetworker getAuthURL];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //NSLog(@"JSON: %@", responseObject);
@@ -81,16 +81,14 @@
 }
 
 -(void)getRepoData{
-    AFHTTPRequestOperationManager *manager = [_localNetworker getConfiguredManager];
-    NSLog(@"details - %@ %@", _localNetworker.username, _localNetworker.password);
+    AFHTTPRequestOperationManager *manager = [_localNetworker getGitHubConfiguredManager];
     NSString* url = [_localNetworker getReposURL];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+        //NSLog(@"JSON: %@", responseObject);
         int i = 0;
         for (i=0; i<[responseObject count]; i++) {
             [self.tempRepos addObject:([responseObject objectAtIndex:(i)])];
         }
-        NSLog(@"SIZE OF TEMP REPOS %lu", self.tempRepos.count);
         [_activityIndicator removeFromSuperview];
         [self performSegueWithIdentifier:@"successfulAuth" sender:self];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

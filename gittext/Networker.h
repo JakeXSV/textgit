@@ -14,11 +14,14 @@
 @property(nonatomic, strong) NSString* username;
 @property(nonatomic, strong) NSString* password;
 
--(AFHTTPRequestOperationManager*)getConfiguredManager;
+-(AFHTTPRequestOperationManager*)getGitHubConfiguredManager;
+-(AFHTTPRequestOperationManager*)getTwilioConfiguredManager;
 -(NSString*)getAuthURL;
 -(NSString*)getReposURL;
 -(NSString*)getCommitsURL;
 -(NSString*)getNotificationsURL;
+-(NSString*)getTwilioSMSURL;
+-(NSString*)getTwilioFromNumber;
 -(void)setCredentials:(NSString*)username pass:(NSString*)pwd;
 
 @end

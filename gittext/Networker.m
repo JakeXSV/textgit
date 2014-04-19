@@ -8,13 +8,30 @@
 
 #import "Networker.h"
 
+NSString *const GitHubAPIBase = @"https://api.github.com";
+NSString *const GitHubAuthEndpoint = @"/user";
+NSString *const GitHubReposEndpoint = @"/user/repos";
+NSString *const GitHubNotificationsEndpoint = @"/notifications";
+
+NSString *const TwilioAPIBase = @"https://api.twilio.com/2010-04-01/Accounts/";
+NSString *const TwilioSMSEndpoint = @"/Messages.json";
+NSString *const TwilioSID = @"";
+NSString *const TwilioAuth = @"";
+NSString *const TwilioNumber = @"";
+
 @implementation Networker
 
-
--(AFHTTPRequestOperationManager*)getConfiguredManager{
+-(AFHTTPRequestOperationManager*)getGitHubConfiguredManager{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
     [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:(_username) password:(_password)];
+    return manager;
+}
+
+-(AFHTTPRequestOperationManager*)getTwilioConfiguredManager{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:TwilioSID password:TwilioAuth];
     return manager;
 }
 
@@ -24,19 +41,27 @@
 }
 
 -(NSString*)getAuthURL{
-    return @"https://api.github.com/user";
+    return [GitHubAPIBase stringByAppendingString:GitHubAuthEndpoint];
 }
 
 -(NSString*)getReposURL{
-    return @"https://api.github.com/user/repos";
+    return [GitHubAPIBase stringByAppendingString:GitHubReposEndpoint];
 }
 
 -(NSString*)getNotificationsURL{
-    return @"https://api.github.com/notifications";
+    return [GitHubAPIBase stringByAppendingString:GitHubNotificationsEndpoint];
 }
 
 -(NSString*)getCommitsURL{
     return @"";
+}
+
+-(NSString*)getTwilioSMSURL{
+    return [[TwilioAPIBase stringByAppendingString:(TwilioSID)] stringByAppendingString: TwilioSMSEndpoint];
+}
+
+-(NSString*)getTwilioFromNumber{
+    return TwilioNumber;
 }
 
 @end

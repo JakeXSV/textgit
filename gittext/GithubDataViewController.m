@@ -7,12 +7,14 @@
 //
 
 #import "GithubDataViewController.h"
+#import "TwilioContactViewController.h"
 
 @interface GithubDataViewController ()
 @property(nonatomic, strong) UIActivityIndicatorView* activityIndicator;
 @property(nonatomic, strong) Alerter* localAlerter;
 @property(nonatomic, strong) Styler* localStyler;
 @property(nonatomic, strong) Indicator* localIndicator;
+@property(nonatomic, strong) NSString* currentlyViewing;
 @end
 
 @implementation GithubDataViewController
@@ -22,6 +24,7 @@
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     _localStyler = [[Styler alloc]init];
+    self.currentlyViewing = @"repos";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 }
@@ -66,6 +69,18 @@
     return NO;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TwilioContactViewController* view = [self.storyboard instantiateViewControllerWithIdentifier:@"ContactView"];
+    if([self.currentlyViewing isEqualToString:@"repos"]){
+        NSLog(@"%@",[[self.repoDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"html_url")]);
+        view.dataToSend = [[NSString alloc]init];
+        view.dataToSend = [[self.repoDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"html_url")];
+    }else{
+        
+    }
+    [self presentViewController:view animated:NO completion:nil];
+}
 
 @end
 
