@@ -14,6 +14,8 @@
 @property(nonatomic, strong)Styler* localStyler;
 @property(nonatomic, strong)Indicator* localIndicator;
 @property(nonatomic, strong)Networker* localNetworker;
+@property(nonatomic, strong)NSMutableArray* tempRepos;
+@property(nonatomic, strong)NSMutableArray* tempCommits;
 @end
 
 @implementation LoginViewController
@@ -21,6 +23,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    self.tempRepos = [[NSMutableArray alloc]init];
+    self.tempCommits = [[NSMutableArray alloc]init];
     _localAlerter = [[Alerter alloc]init];
     _localStyler = [[Styler alloc]init];
     _localIndicator = [[Indicator alloc]init];
@@ -41,6 +46,7 @@
     {
         GithubDataViewController* wc = segue.destinationViewController;
         wc.localNetworker = _localNetworker;
+        wc.repoDictionaryArray = self.tempRepos;
     }
 }
 
@@ -55,7 +61,7 @@
     AFHTTPRequestOperationManager *manager = [_localNetworker getConfiguredManager];
     NSString* url = [_localNetworker getAuthURL];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+        //NSLog(@"JSON: %@", responseObject);
         [self successfulAuth];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -64,8 +70,7 @@
 }
 
 -(void)successfulAuth{
-    [_activityIndicator removeFromSuperview];
-    [self performSegueWithIdentifier:@"successfulAuth" sender:self];
+    [self getRepoData];
 }
 
 -(void)failedAuth{
@@ -73,6 +78,25 @@
     [_activityIndicator removeFromSuperview];
     [_login setEnabled:(true)];
     [[_localAlerter createAlert:(@"Error.") messageText:(@"Invalid credentials, try again.") buttonText:(@"Ok")] show];
+}
+
+-(void)getRepoData{
+    AFHTTPRequestOperationManager *manager = [_localNetworker getConfiguredManager];
+    NSLog(@"details - %@ %@", _localNetworker.username, _localNetworker.password);
+    NSString* url = [_localNetworker getReposURL];
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        int i = 0;
+        for (i=0; i<[responseObject count]; i++) {
+            [self.tempRepos addObject:([responseObject objectAtIndex:(i)])];
+        }
+        NSLog(@"SIZE OF TEMP REPOS %lu", self.tempRepos.count);
+        [_activityIndicator removeFromSuperview];
+        [self performSegueWithIdentifier:@"successfulAuth" sender:self];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        [_activityIndicator removeFromSuperview];
+    }];
 }
 
 @end
