@@ -161,8 +161,8 @@
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-LG-Hxf">
-                                <rect key="frame" x="211" y="516" width="109" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-LG-Hxf" customClass="FUIButton">
+                                <rect key="frame" x="225" y="530" width="75" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="19"/>
                                 <state key="normal" title="textgit!">
@@ -172,8 +172,8 @@
                                     <action selector="sendMessage" destination="ICy-vz-20M" eventType="touchUpInside" id="f7b-MX-CXb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa2-6N-R2V">
-                                <rect key="frame" x="0.0" y="516" width="109" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa2-6N-R2V" customClass="FUIButton">
+                                <rect key="frame" x="20" y="530" width="75" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="19"/>
                                 <state key="normal" title="cancel">
@@ -194,10 +194,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="SX9-Tv-Luh"/>
                     <connections>
-                        <outlet property="cancelButton" destination="Xa2-6N-R2V" id="QNv-3e-yza"/>
+                        <outlet property="cancelButton" destination="Xa2-6N-R2V" id="lGe-tu-9AB"/>
                         <outlet property="contactTextField" destination="iKN-iA-70k" id="pC6-Kx-hpt"/>
                         <outlet property="messageTextView" destination="lZI-Si-rVp" id="vto-Y2-GJR"/>
-                        <outlet property="textGitButton" destination="pdt-LG-Hxf" id="6wx-xB-A1H"/>
+                        <outlet property="textGitButton" destination="pdt-LG-Hxf" id="H5Q-rC-dD2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQA-mE-7zu" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -33,6 +33,8 @@
     self.localStyler = [[Styler alloc]init];
     self.localNetworker = [[Networker alloc]init];
     self.localAlerter = [[Alerter alloc]init];
+    [self.localStyler styleButton:self.textGitButton];
+    [self.localStyler styleButton:self.cancelButton];
     self.contactTextField.delegate = self;
     self.messageTextView.delegate = self;
     self.messageTextView.text = [self.dataToSend stringByAppendingString:@" <- check this out!"];
