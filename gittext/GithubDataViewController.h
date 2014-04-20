@@ -14,12 +14,11 @@
 #import "Indicator.h"
 #import "Networker.h"
 
-@interface GithubDataViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface GithubDataViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITabBarDelegate>
 
-@property(nonatomic, strong) Networker* localNetworker;
 @property(nonatomic, weak) IBOutlet UITabBar* tabBar;
 @property(nonatomic, weak) IBOutlet UITableView* tableView;
 @property(nonatomic, strong) NSMutableArray* repoDictionaryArray;
-@property(nonatomic, strong) NSMutableArray* commitDictionaryArray;
+@property(nonatomic, strong) NSMutableArray* notificationDictionaryArray;
 
 @end

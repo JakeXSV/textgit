@@ -12,6 +12,7 @@ NSString *const GitHubAPIBase = @"https://api.github.com";
 NSString *const GitHubAuthEndpoint = @"/user";
 NSString *const GitHubReposEndpoint = @"/user/repos";
 NSString *const GitHubNotificationsEndpoint = @"/notifications";
+NSString *const GitHubIssuesEndpoint = @"/issues";
 
 NSString *const TwilioAPIBase = @"https://api.twilio.com/2010-04-01/Accounts/";
 NSString *const TwilioSMSEndpoint = @"/Messages.json";
@@ -52,8 +53,8 @@ NSString *const TwilioNumber = @"";
     return [GitHubAPIBase stringByAppendingString:GitHubNotificationsEndpoint];
 }
 
--(NSString*)getCommitsURL{
-    return @"";
+-(NSString*)getIssuesURL{
+    return [GitHubAPIBase stringByAppendingString:GitHubIssuesEndpoint];
 }
 
 -(NSString*)getTwilioSMSURL{

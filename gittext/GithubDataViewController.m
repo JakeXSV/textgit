@@ -27,6 +27,7 @@
     self.currentlyViewing = @"repos";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tabBar.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -37,8 +38,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return self.repoDictionaryArray.count;
+    if([self.currentlyViewing isEqualToString:@"repos"]){
+        return self.repoDictionaryArray.count;
+    }else if([self.currentlyViewing isEqualToString:@"notifications"]){
+        return self.notificationDictionaryArray.count;
+    }else{
+        return 100;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -46,40 +52,72 @@
     static NSString *CellIdentifier = @"DataCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    [cell configureFlatCellWithColor:[UIColor greenSeaColor]
-                       selectedColor:[UIColor cloudsColor]];
+    [cell configureFlatCellWithColor:[UIColor greenSeaColor] selectedColor:[UIColor cloudsColor]];
     cell.cornerRadius = 5.0f;
     cell.separatorHeight = 2.0f;
-    cell.textLabel.text = [[self.repoDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"full_name")];
-    
+    if([self.currentlyViewing isEqualToString:@"repos"]){
+        [cell.textLabel setFont:([UIFont fontWithName:@"HelveticaNeue" size:17])];
+        cell.textLabel.text = [[self.repoDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"full_name")];
+    }else if([self.currentlyViewing isEqualToString:@"notifications"]){
+        [cell.textLabel setFont:([UIFont fontWithName:@"HelveticaNeue" size:10])];
+        cell.textLabel.numberOfLines = 0;
+        NSString* notification = [[[self.notificationDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"subject")] valueForKeyPath:(@"title")];
+        NSString* project = [[[self.notificationDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"repository")] valueForKeyPath:(@"name")];
+        NSString* newLine = @":\n";
+        cell.textLabel.text = [project stringByAppendingString:([newLine stringByAppendingString:(notification)])];
+    }
     return cell;
 }
 
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
     return NO;
 }
 
-// Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the item to be re-orderable.
     return NO;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TwilioContactViewController* view = [self.storyboard instantiateViewControllerWithIdentifier:@"ContactView"];
+    
     if([self.currentlyViewing isEqualToString:@"repos"]){
-        NSLog(@"%@",[[self.repoDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"html_url")]);
         view.dataToSend = [[NSString alloc]init];
         view.dataToSend = [[self.repoDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"html_url")];
     }else{
-        
+        NSString* apiUrlVersion = [[[self.notificationDictionaryArray objectAtIndex:(indexPath.row)] valueForKey:(@"subject")] valueForKey:@"url"];
+        NSString* fixedUrl = [self decodeAPIVersionOfURL:[[NSURL alloc] initWithString:apiUrlVersion]];
+        view.dataToSend = [[NSString alloc]init];
+        view.dataToSend = fixedUrl;
     }
+    
     [self presentViewController:view animated:NO completion:nil];
+}
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    if ([[item title] isEqualToString:(@"Repository")]){
+        self.currentlyViewing = @"repos";
+    }else if([[item title] isEqualToString:(@"Notifications")]){
+        self.currentlyViewing = @"notifications";
+    }else{
+        NSLog(@"Error during tab bar selection");
+    }
+    [self.tableView reloadData];
+}
+
+-(NSString*)decodeAPIVersionOfURL:(NSURL*)url{
+    NSString* protocol = url.scheme;
+    NSString* slashes = @"://";
+    NSString* fixedHost = [url.host stringByReplacingOccurrencesOfString:@"api." withString:@""];
+    NSString* restOfPath = @"/";
+    int i = 2;
+    for (i=2; i<url.pathComponents.count; i++) {
+        restOfPath = [[restOfPath stringByAppendingString:url.pathComponents[i]] stringByAppendingString:@"/"];
+    }
+    restOfPath = [restOfPath substringToIndex:restOfPath.length-1];
+    return [[[[@"" stringByAppendingString:protocol] stringByAppendingString:slashes] stringByAppendingString:fixedHost] stringByAppendingString:restOfPath];
 }
 
 @end

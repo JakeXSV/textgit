@@ -105,7 +105,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
                                     <tabBarItem title="Repository" image="repo.png" id="8Am-Yt-nH4"/>
-                                    <tabBarItem title="Commit" image="commit.png" id="4Rf-hi-eHf"/>
+                                    <tabBarItem title="Notifications" image="commit.png" id="4Rf-hi-eHf"/>
                                 </items>
                             </tabBar>
                         </subviews>

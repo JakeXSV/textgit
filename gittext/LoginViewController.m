@@ -15,7 +15,7 @@
 @property(nonatomic, strong)Indicator* localIndicator;
 @property(nonatomic, strong)Networker* localNetworker;
 @property(nonatomic, strong)NSMutableArray* tempRepos;
-@property(nonatomic, strong)NSMutableArray* tempCommits;
+@property(nonatomic, strong)NSMutableArray* tempNotifications;
 @end
 
 @implementation LoginViewController
@@ -25,7 +25,7 @@
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     self.tempRepos = [[NSMutableArray alloc]init];
-    self.tempCommits = [[NSMutableArray alloc]init];
+    self.tempNotifications = [[NSMutableArray alloc]init];
     _localAlerter = [[Alerter alloc]init];
     _localStyler = [[Styler alloc]init];
     _localIndicator = [[Indicator alloc]init];
@@ -38,16 +38,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"successfulAuth"])
-    {
-        GithubDataViewController* wc = segue.destinationViewController;
-        wc.localNetworker = _localNetworker;
-        wc.repoDictionaryArray = self.tempRepos;
-    }
 }
 
 -(IBAction)loadApp:(id)sender{
@@ -70,7 +60,7 @@
 }
 
 -(void)successfulAuth{
-    [self getRepoData];
+    [self getRepoData]; //on success chain calls getNotificationData, which calls segue
 }
 
 -(void)failedAuth{
@@ -89,12 +79,38 @@
         for (i=0; i<[responseObject count]; i++) {
             [self.tempRepos addObject:([responseObject objectAtIndex:(i)])];
         }
+        [self getNotificationData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        [_activityIndicator removeFromSuperview];
+    }];
+}
+
+-(void)getNotificationData{
+    AFHTTPRequestOperationManager *manager = [_localNetworker getGitHubConfiguredManager];
+    NSString* url = [self.localNetworker getNotificationsURL];
+    [manager GET:url parameters:@{@"all":@"true"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        int i = 0;
+        for (i=0; i<[responseObject count]; i++) {
+            [self.tempNotifications addObject:([responseObject objectAtIndex:(i)])];
+        }
         [_activityIndicator removeFromSuperview];
         [self performSegueWithIdentifier:@"successfulAuth" sender:self];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         [_activityIndicator removeFromSuperview];
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"successfulAuth"])
+    {
+        GithubDataViewController* wc = segue.destinationViewController;
+        wc.repoDictionaryArray = self.tempRepos;
+        wc.notificationDictionaryArray = self.tempNotifications;
+    }
 }
 
 @end

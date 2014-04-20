@@ -18,7 +18,7 @@
 -(AFHTTPRequestOperationManager*)getTwilioConfiguredManager;
 -(NSString*)getAuthURL;
 -(NSString*)getReposURL;
--(NSString*)getCommitsURL;
+-(NSString*)getIssuesURL;
 -(NSString*)getNotificationsURL;
 -(NSString*)getTwilioSMSURL;
 -(NSString*)getTwilioFromNumber;
