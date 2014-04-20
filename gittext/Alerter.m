@@ -9,7 +9,6 @@
 #import "Alerter.h"
 
 @implementation Alerter
-
 -(FUIAlertView*)createAlert:(NSString*)title messageText:(NSString*) message buttonText:(NSString*) buttonText{
     FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:title
                                                           message:message
@@ -28,5 +27,4 @@
     alertView.defaultButtonTitleColor = [UIColor asbestosColor];
     return alertView;
 }
-
 @end

@@ -146,7 +146,7 @@
 			children = (
 				1482739618F4A24C004C3623 /* AppDelegate.h */,
 				1482739718F4A24C004C3623 /* AppDelegate.m */,
-				23CA461118B5AC6900797FD5 /* Helpers */,
+				23CA461118B5AC6900797FD5 /* lib */,
 				147670C118B2D96E00F60CB9 /* LoginScreen */,
 				23BF093D18B7120800654E0D /* GithubDataScreen */,
 				148273B318F4A779004C3623 /* TwilioContactScreen */,
@@ -233,7 +233,7 @@
 			name = GithubDataScreen;
 			sourceTree = "<group>";
 		};
-		23CA461118B5AC6900797FD5 /* Helpers */ = {
+		23CA461118B5AC6900797FD5 /* lib */ = {
 			isa = PBXGroup;
 			children = (
 				1482739418F4A24C004C3623 /* Alerter.h */,
@@ -245,7 +245,7 @@
 				1482739E18F4A24C004C3623 /* Styler.h */,
 				1482739F18F4A24C004C3623 /* Styler.m */,
 			);
-			name = Helpers;
+			name = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

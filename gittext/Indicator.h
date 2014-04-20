@@ -6,11 +6,8 @@
 //  Copyright (c) 2014 jprather. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <FlatUIKit.h>
 
 @interface Indicator : NSObject
-
 -(UIActivityIndicatorView*)createUIViewIndicator:(UIViewController*)view;
-
 @end

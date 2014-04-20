@@ -1,5 +1,5 @@
 //
-//  WelcomeController.m
+//  GithubDataViewController
 //  gittext
 //
 //  Created by Jake on 2/19/14.
@@ -9,11 +9,13 @@
 #import "GithubDataViewController.h"
 #import "TwilioContactViewController.h"
 
+NSString *const CellIdentifier          = @"DataCell";
+NSString *const TabBarNotificationsId   = @"Notifications";
+NSString *const TabBarRepositoriesId    = @"Repositories";
+NSString *const FontForCells            = @"HelveticaNeue";
+NSString *const TwilioContactViewId     = @"ContactView";
+
 @interface GithubDataViewController ()
-@property(nonatomic, strong) UIActivityIndicatorView* activityIndicator;
-@property(nonatomic, strong) Alerter* localAlerter;
-@property(nonatomic, strong) Styler* localStyler;
-@property(nonatomic, strong) Indicator* localIndicator;
 @property(nonatomic, strong) NSString* currentlyViewing;
 @end
 
@@ -22,25 +24,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    _localStyler = [[Styler alloc]init];
-    self.currentlyViewing = @"repos";
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tabBar.delegate = self;
+    [self initializeLocalData];
+    [self initializeDelegatee];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Initializers
+
+-(void)initializeLocalData{
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    self.currentlyViewing = TabBarRepositoriesId;
+}
+
+-(void)initializeDelegatee{
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tabBar.delegate = self;
+}
+
+#pragma mark - Table View Delegate/DS
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if([self.currentlyViewing isEqualToString:@"repos"]){
+    if([self.currentlyViewing isEqualToString:TabBarRepositoriesId]){
         return self.repoDictionaryArray.count;
-    }else if([self.currentlyViewing isEqualToString:@"notifications"]){
+    }else if([self.currentlyViewing isEqualToString:TabBarNotificationsId]){
         return self.notificationDictionaryArray.count;
     }else{
         return 100;
@@ -55,18 +66,37 @@
     [cell configureFlatCellWithColor:[UIColor greenSeaColor] selectedColor:[UIColor cloudsColor]];
     cell.cornerRadius = 5.0f;
     cell.separatorHeight = 2.0f;
-    if([self.currentlyViewing isEqualToString:@"repos"]){
-        [cell.textLabel setFont:([UIFont fontWithName:@"HelveticaNeue" size:17])];
+    
+    if([self.currentlyViewing isEqualToString:TabBarRepositoriesId]){
+        
+        [cell.textLabel setFont:([UIFont fontWithName:FontForCells size:17])];
         cell.textLabel.text = [[self.repoDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"full_name")];
-    }else if([self.currentlyViewing isEqualToString:@"notifications"]){
-        [cell.textLabel setFont:([UIFont fontWithName:@"HelveticaNeue" size:10])];
+        
+    }else if([self.currentlyViewing isEqualToString:TabBarNotificationsId]){
+        
+        [cell.textLabel setFont:([UIFont fontWithName:FontForCells size:10])];
         cell.textLabel.numberOfLines = 0;
         NSString* notification = [[[self.notificationDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"subject")] valueForKeyPath:(@"title")];
         NSString* project = [[[self.notificationDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"repository")] valueForKeyPath:(@"name")];
         NSString* newLine = @":\n";
         cell.textLabel.text = [project stringByAppendingString:([newLine stringByAppendingString:(notification)])];
+        
     }
     return cell;
+}
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    if ([[item title] isEqualToString:(TabBarRepositoriesId)])
+    {
+        self.currentlyViewing = TabBarRepositoriesId;
+    }
+    else if([[item title] isEqualToString:(TabBarNotificationsId)])
+    {
+        self.currentlyViewing = TabBarNotificationsId;
+    }else{
+        NSLog(@"Error during tab bar selection");
+    }
+    [self.tableView reloadData];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,33 +109,27 @@
     return NO;
 }
 
+# pragma mark - Table View Delegatee Event & Transition
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TwilioContactViewController* view = [self.storyboard instantiateViewControllerWithIdentifier:@"ContactView"];
+    TwilioContactViewController* view = [self.storyboard instantiateViewControllerWithIdentifier:TwilioContactViewId];
+    view.dataToSend = [[NSString alloc]init];
     
-    if([self.currentlyViewing isEqualToString:@"repos"]){
-        view.dataToSend = [[NSString alloc]init];
+    if([self.currentlyViewing isEqualToString:TabBarRepositoriesId]){
         view.dataToSend = [[self.repoDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"html_url")];
-    }else{
+    }else if([self.currentlyViewing isEqualToString:TabBarNotificationsId]){
         NSString* apiUrlVersion = [[[self.notificationDictionaryArray objectAtIndex:(indexPath.row)] valueForKey:(@"subject")] valueForKey:@"url"];
         NSString* fixedUrl = [self decodeAPIVersionOfURL:[[NSURL alloc] initWithString:apiUrlVersion]];
-        view.dataToSend = [[NSString alloc]init];
         view.dataToSend = fixedUrl;
+    }else{
+        view.dataToSend = @"";
     }
     
     [self presentViewController:view animated:NO completion:nil];
 }
 
--(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    if ([[item title] isEqualToString:(@"Repository")]){
-        self.currentlyViewing = @"repos";
-    }else if([[item title] isEqualToString:(@"Notifications")]){
-        self.currentlyViewing = @"notifications";
-    }else{
-        NSLog(@"Error during tab bar selection");
-    }
-    [self.tableView reloadData];
-}
+# pragma mark - Local Helper Functions
 
 -(NSString*)decodeAPIVersionOfURL:(NSURL*)url{
     NSString* protocol = url.scheme;

@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  LoginViewController
 //  gittext
 //
 //  Created by Jake on 2/13/14.
@@ -8,109 +8,115 @@
 
 #import "LoginViewController.h"
 
+NSString *const SegueToGitHubDataView = @"successfulAuth";
+
 @interface LoginViewController ()
-@property(nonatomic, strong)UIActivityIndicatorView* activityIndicator;
-@property(nonatomic, strong)Alerter* localAlerter;
-@property(nonatomic, strong)Styler* localStyler;
-@property(nonatomic, strong)Indicator* localIndicator;
-@property(nonatomic, strong)Networker* localNetworker;
-@property(nonatomic, strong)NSMutableArray* tempRepos;
-@property(nonatomic, strong)NSMutableArray* tempNotifications;
+@property(nonatomic, strong) UIActivityIndicatorView* activityIndicator;
+@property(nonatomic, strong) Alerter* localAlerter;
+@property(nonatomic, strong) Styler* localStyler;
+@property(nonatomic, strong) Indicator* localIndicator;
+@property(nonatomic, strong) Networker* localNetworker;
+@property(nonatomic, strong) NSMutableArray* tempRepos;
+@property(nonatomic, strong) NSMutableArray* tempNotifications;
 @end
 
 @implementation LoginViewController
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    self.tempRepos = [[NSMutableArray alloc]init];
-    self.tempNotifications = [[NSMutableArray alloc]init];
-    _localAlerter = [[Alerter alloc]init];
-    _localStyler = [[Styler alloc]init];
-    _localIndicator = [[Indicator alloc]init];
-    _localNetworker = [[Networker alloc]init];
-    [self.view addSubview: [_localIndicator createUIViewIndicator:(self)]];
-    [_localStyler styleButton:(_login)];
+    [self initializeLocalData];
+    [self initializeStyles];
+    [self.view addSubview: [self.localIndicator createUIViewIndicator:(self)]];
 }
 
-- (void)didReceiveMemoryWarning
+-(void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
+# pragma mark - Initializers
+
+-(void)initializeLocalData{
+    self.tempRepos = [[NSMutableArray alloc]init];
+    self.tempNotifications = [[NSMutableArray alloc]init];
+    self.localAlerter = [[Alerter alloc]init];
+    self.localStyler = [[Styler alloc]init];
+    self.localIndicator = [[Indicator alloc]init];
+    self.localNetworker = [[Networker alloc]init];
+}
+
+-(void)initializeStyles{
+    [self.localStyler styleButton:(self.login)];
+}
+
+# pragma mark - Authentication & Data Retrieval
+//authenticate (on success) -> get repo data (on success) -> get notification data (on success) -> load new view
+
 -(IBAction)loadApp:(id)sender{
-    [_activityIndicator startAnimating];
+    [self.activityIndicator startAnimating];
     [self authenticate];
-    [_login setEnabled:(false)];
+    [self.login setEnabled:(false)];
 }
 
 -(void)authenticate{
-    [_localNetworker setCredentials:([_username text]) pass:([_password text])];
-    AFHTTPRequestOperationManager *manager = [_localNetworker getGitHubConfiguredManager];
-    NSString* url = [_localNetworker getAuthURL];
+    [self.localNetworker setCredentials:([self.username text]) pass:([self.password text])];
+    AFHTTPRequestOperationManager *manager = [self.localNetworker getGitHubConfiguredManager];
+    NSString* url = [self.localNetworker getAuthURL];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"JSON: %@", responseObject);
-        [self successfulAuth];
+        [self getRepoData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         [self failedAuth];
     }];
 }
 
--(void)successfulAuth{
-    [self getRepoData]; //on success chain calls getNotificationData, which calls segue
-}
-
 -(void)failedAuth{
-    NSLog(@"Failed Auth");
-    [_activityIndicator removeFromSuperview];
-    [_login setEnabled:(true)];
-    [[_localAlerter createAlert:(@"Error.") messageText:(@"Invalid credentials, try again.") buttonText:(@"Ok")] show];
+    [self.activityIndicator removeFromSuperview];
+    [self.login setEnabled:(true)];
+    [[self.localAlerter createAlert:(@"Error.") messageText:(@"Invalid credentials, try again.") buttonText:(@"Ok")] show];
 }
 
 -(void)getRepoData{
-    AFHTTPRequestOperationManager *manager = [_localNetworker getGitHubConfiguredManager];
-    NSString* url = [_localNetworker getReposURL];
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"JSON: %@", responseObject);
-        int i = 0;
-        for (i=0; i<[responseObject count]; i++) {
-            [self.tempRepos addObject:([responseObject objectAtIndex:(i)])];
-        }
+    AFHTTPRequestOperationManager *manager = [self.localNetworker getGitHubConfiguredManager];
+    [manager GET:[self.localNetworker getReposURL] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+        //NSCFArray -> NSMutableArray
+        for (int i=0; i<[responseObject count]; i++) { [self.tempRepos addObject:([responseObject objectAtIndex:(i)])]; }
         [self getNotificationData];
+    
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        [_activityIndicator removeFromSuperview];
+        [self.activityIndicator removeFromSuperview];
     }];
 }
 
 -(void)getNotificationData{
-    AFHTTPRequestOperationManager *manager = [_localNetworker getGitHubConfiguredManager];
-    NSString* url = [self.localNetworker getNotificationsURL];
-    [manager GET:url parameters:@{@"all":@"true"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        int i = 0;
-        for (i=0; i<[responseObject count]; i++) {
-            [self.tempNotifications addObject:([responseObject objectAtIndex:(i)])];
-        }
-        [_activityIndicator removeFromSuperview];
-        [self performSegueWithIdentifier:@"successfulAuth" sender:self];
+    AFHTTPRequestOperationManager *manager = [self.localNetworker getGitHubConfiguredManager];
+    [manager GET:[self.localNetworker getNotificationsURL] parameters:@{@"all":@"true"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+        //NSCFArray -> NSMutableArray
+        for (int i=0; i<[responseObject count]; i++) { [self.tempNotifications addObject:([responseObject objectAtIndex:(i)])]; }
+        [self performSegueWithIdentifier:SegueToGitHubDataView sender:self];
+    
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        [_activityIndicator removeFromSuperview];
+        [self.activityIndicator removeFromSuperview];
     }];
 }
 
+# pragma mark - Transition
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"successfulAuth"])
+    if ([segue.identifier isEqualToString:SegueToGitHubDataView])
     {
         GithubDataViewController* wc = segue.destinationViewController;
         wc.repoDictionaryArray = self.tempRepos;
         wc.notificationDictionaryArray = self.tempNotifications;
     }
+    [self.activityIndicator removeFromSuperview];
 }
 
 @end

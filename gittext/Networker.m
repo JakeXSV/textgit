@@ -8,17 +8,17 @@
 
 #import "Networker.h"
 
-NSString *const GitHubAPIBase = @"https://api.github.com";
-NSString *const GitHubAuthEndpoint = @"/user";
-NSString *const GitHubReposEndpoint = @"/user/repos";
+NSString *const GitHubAPIBase               = @"https://api.github.com";
+NSString *const GitHubAuthEndpoint          = @"/user";
+NSString *const GitHubReposEndpoint         = @"/user/repos";
 NSString *const GitHubNotificationsEndpoint = @"/notifications";
-NSString *const GitHubIssuesEndpoint = @"/issues";
+NSString *const GitHubIssuesEndpoint        = @"/issues";
 
-NSString *const TwilioAPIBase = @"https://api.twilio.com/2010-04-01/Accounts/";
-NSString *const TwilioSMSEndpoint = @"/Messages.json";
-NSString *const TwilioSID = @"";
-NSString *const TwilioAuth = @"";
-NSString *const TwilioNumber = @"";
+NSString *const TwilioAPIBase       = @"https://api.twilio.com/2010-04-01/Accounts/";
+NSString *const TwilioSMSEndpoint   = @"/Messages.json";
+NSString *const TwilioSID           = @"";
+NSString *const TwilioAuth          = @"";
+NSString *const TwilioNumber        = @"";
 
 @implementation Networker
 
