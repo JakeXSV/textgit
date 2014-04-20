@@ -1,19 +1,24 @@
 textgit
 =======
-
-iOS CS658 Final Project
-
-an app that allows a user to send their favorite repositorys or important commits from github to their friends via sms
+An app that allows a user to send their favorite repositories, or important notifications from github to their friends via sms.
 
 configuration
 =============
 
 In Networker.m, set the following constants to your twilio settings:
+
+```objc
 NSString *const TwilioSID           = @"123";
 NSString *const TwilioAuth          = @"345";
 NSString *const TwilioNumber        = @"2621235555";
+```
 
-todo
+todo (for CS657)
 ====
 * add icon
 * fix tab bar icons
+
+improvements (future)
+============
+* Use twilio capability tokens (more secure)
+* Use oauth for github api (more secure)
