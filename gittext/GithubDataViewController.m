@@ -8,6 +8,7 @@
 
 #import "GithubDataViewController.h"
 #import "TwilioContactViewController.h"
+#import "Styler.h"
 
 NSString *const CellIdentifier          = @"DataCell";
 NSString *const TabBarNotificationsId   = @"Notifications";
@@ -17,6 +18,7 @@ NSString *const TwilioContactViewId     = @"ContactView";
 
 @interface GithubDataViewController ()
 @property(nonatomic, strong) NSString* currentlyViewing;
+@property(nonatomic, strong) Styler* localStyler;
 @end
 
 @implementation GithubDataViewController
@@ -35,6 +37,7 @@ NSString *const TwilioContactViewId     = @"ContactView";
 #pragma mark - Initializers
 
 -(void)initializeLocalData{
+    self.localStyler = [[Styler alloc]init];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     self.currentlyViewing = TabBarRepositoriesId;
 }
@@ -62,25 +65,18 @@ NSString *const TwilioContactViewId     = @"ContactView";
 {
     static NSString *CellIdentifier = @"DataCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    [self.localStyler styleTableCell:cell];
     
-    [cell configureFlatCellWithColor:[UIColor greenSeaColor] selectedColor:[UIColor cloudsColor]];
-    cell.cornerRadius = 5.0f;
-    cell.separatorHeight = 2.0f;
-    
-    if([self.currentlyViewing isEqualToString:TabBarRepositoriesId]){
-        
+    if([self.currentlyViewing isEqualToString:TabBarRepositoriesId])
+    {
         [cell.textLabel setFont:([UIFont fontWithName:FontForCells size:17])];
-        cell.textLabel.text = [[self.repoDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"full_name")];
-        
-    }else if([self.currentlyViewing isEqualToString:TabBarNotificationsId]){
-        
+        cell.textLabel.text = [self getRepositoryName:[self.repoDictionaryArray objectAtIndex:(indexPath.row)]];
+    }
+    else if([self.currentlyViewing isEqualToString:TabBarNotificationsId])
+    {
         [cell.textLabel setFont:([UIFont fontWithName:FontForCells size:10])];
-        cell.textLabel.numberOfLines = 0;
-        NSString* notification = [[[self.notificationDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"subject")] valueForKeyPath:(@"title")];
-        NSString* project = [[[self.notificationDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"repository")] valueForKeyPath:(@"name")];
-        NSString* newLine = @":\n";
-        cell.textLabel.text = [project stringByAppendingString:([newLine stringByAppendingString:(notification)])];
-        
+        cell.textLabel.numberOfLines = 0; //allow for multiple lines in single textviewcell label
+        cell.textLabel.text = [self getNotificationText:[self.notificationDictionaryArray objectAtIndex:(indexPath.row)]];
     }
     return cell;
 }
@@ -116,10 +112,13 @@ NSString *const TwilioContactViewId     = @"ContactView";
     TwilioContactViewController* view = [self.storyboard instantiateViewControllerWithIdentifier:TwilioContactViewId];
     view.dataToSend = [[NSString alloc]init];
     
-    if([self.currentlyViewing isEqualToString:TabBarRepositoriesId]){
-        view.dataToSend = [[self.repoDictionaryArray objectAtIndex:(indexPath.row)] valueForKeyPath:(@"html_url")];
-    }else if([self.currentlyViewing isEqualToString:TabBarNotificationsId]){
-        NSString* apiUrlVersion = [[[self.notificationDictionaryArray objectAtIndex:(indexPath.row)] valueForKey:(@"subject")] valueForKey:@"url"];
+    if([self.currentlyViewing isEqualToString:TabBarRepositoriesId])
+    {
+        view.dataToSend = [self getDataToSendFromRepository:[self.repoDictionaryArray objectAtIndex:(indexPath.row)]];
+    }
+    else if([self.currentlyViewing isEqualToString:TabBarNotificationsId])
+    {
+        NSString* apiUrlVersion = [self getDataToSendFromNotification:[self.notificationDictionaryArray objectAtIndex:(indexPath.row)]];
         NSString* fixedUrl = [self decodeAPIVersionOfURL:[[NSURL alloc] initWithString:apiUrlVersion]];
         view.dataToSend = fixedUrl;
     }else{
@@ -129,7 +128,7 @@ NSString *const TwilioContactViewId     = @"ContactView";
     [self presentViewController:view animated:NO completion:nil];
 }
 
-# pragma mark - Local Helper Functions
+# pragma mark - Local Helper Functions + Dictionary Work
 
 -(NSString*)decodeAPIVersionOfURL:(NSURL*)url{
     NSString* protocol = url.scheme;
@@ -142,6 +141,33 @@ NSString *const TwilioContactViewId     = @"ContactView";
     }
     restOfPath = [restOfPath substringToIndex:restOfPath.length-1];
     return [[[[@"" stringByAppendingString:protocol] stringByAppendingString:slashes] stringByAppendingString:fixedHost] stringByAppendingString:restOfPath];
+}
+
+-(NSString*)getNotificationText:(NSDictionary*)item{
+    NSString* notification = [self getNotificationTitle:item];
+    NSString* project = [self getNotificationProject:item];
+    NSString* newLine = @":\n";
+    return [project stringByAppendingString:([newLine stringByAppendingString:(notification)])];
+}
+
+-(NSString*)getNotificationTitle:(NSDictionary*)item{
+    return [[item valueForKeyPath:@"subject"] valueForKeyPath:@"title"];
+}
+
+-(NSString*)getNotificationProject:(NSDictionary*)item{
+    return [[item valueForKeyPath:(@"repository")] valueForKeyPath:(@"name")];
+}
+
+-(NSString*)getRepositoryName:(NSDictionary*)item{
+    return [item valueForKeyPath:(@"full_name")];
+}
+
+-(NSString*)getDataToSendFromRepository:(NSDictionary*)item{
+    return [item valueForKeyPath:(@"html_url")];
+}
+
+-(NSString*)getDataToSendFromNotification:(NSDictionary*)item{
+    return [[item valueForKey:(@"subject")] valueForKey:@"url"];
 }
 
 @end

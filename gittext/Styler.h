@@ -13,5 +13,6 @@
 
 -(void)styleButton:(FUIButton*)button;
 -(void)styleSegmentedControl:(FUISegmentedControl*)segControl;
+-(void)styleTableCell:(UITableViewCell*)cell;
 
 @end

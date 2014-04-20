@@ -31,4 +31,10 @@
     segControl.cornerRadius = 15;
 }
 
+-(void)styleTableCell:(UITableViewCell*)cell{
+    [cell configureFlatCellWithColor:[UIColor greenSeaColor] selectedColor:[UIColor cloudsColor]];
+    cell.cornerRadius = 5.0f;
+    cell.separatorHeight = 2.0f;
+}
+
 @end
