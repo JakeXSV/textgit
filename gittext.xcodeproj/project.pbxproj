@@ -27,6 +27,8 @@
 		148273A718F4A24C004C3623 /* Styler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482739F18F4A24C004C3623 /* Styler.m */; };
 		148273A818F4A24C004C3623 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148273A118F4A24C004C3623 /* LoginViewController.m */; };
 		148273B618F4A7D2004C3623 /* TwilioContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148273B518F4A7D2004C3623 /* TwilioContactViewController.m */; };
+		14EA63511910565000EF9493 /* repository.png in Resources */ = {isa = PBXBuildFile; fileRef = 14EA63501910565000EF9493 /* repository.png */; };
+		14EA63531910570100EF9493 /* alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 14EA63521910570100EF9493 /* alert.png */; };
 		29B24DEA257E435485773310 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3EC16FAF4149BD8DFCE032 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		148273A118F4A24C004C3623 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		148273B418F4A7D2004C3623 /* TwilioContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwilioContactViewController.h; sourceTree = "<group>"; };
 		148273B518F4A7D2004C3623 /* TwilioContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwilioContactViewController.m; sourceTree = "<group>"; };
+		14EA63501910565000EF9493 /* repository.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repository.png; sourceTree = "<group>"; };
+		14EA63521910570100EF9493 /* alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert.png; sourceTree = "<group>"; };
 		1F0258CBF45647029E6ADD6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,16 +195,9 @@
 		148273A918F4A533004C3623 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				148273AA18F4A540004C3623 /* Images */,
+				14EA634F1910565000EF9493 /* images */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		148273AA18F4A540004C3623 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 		148273B318F4A779004C3623 /* TwilioContactScreen */ = {
@@ -210,6 +207,15 @@
 				148273B518F4A7D2004C3623 /* TwilioContactViewController.m */,
 			);
 			name = TwilioContactScreen;
+			sourceTree = "<group>";
+		};
+		14EA634F1910565000EF9493 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				14EA63521910570100EF9493 /* alert.png */,
+				14EA63501910565000EF9493 /* repository.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		23BF093D18B7120800654E0D /* GithubDataScreen */ = {
@@ -315,7 +321,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14EA63531910570100EF9493 /* alert.png in Resources */,
 				1447AA9518AD8DCE00140D43 /* Images.xcassets in Resources */,
+				14EA63511910565000EF9493 /* repository.png in Resources */,
 				1447AA8718AD8DCE00140D43 /* InfoPlist.strings in Resources */,
 				1447AA9018AD8DCE00140D43 /* Main.storyboard in Resources */,
 			);

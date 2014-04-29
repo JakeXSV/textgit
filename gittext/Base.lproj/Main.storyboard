@@ -99,14 +99,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uI-v3-BxE">
+                            <tabBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uI-v3-BxE">
                                 <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem title="Repositories" id="8Am-Yt-nH4"/>
-                                    <tabBarItem title="Notifications" image="commit.png" id="4Rf-hi-eHf"/>
+                                    <tabBarItem title="Repositories" image="repository.png" id="8Am-Yt-nH4"/>
+                                    <tabBarItem title="Notifications" image="alert.png" id="4Rf-hi-eHf"/>
                                 </items>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -206,7 +207,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="commit.png" width="46" height="46"/>
+        <image name="alert.png" width="30" height="30"/>
+        <image name="repository.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
