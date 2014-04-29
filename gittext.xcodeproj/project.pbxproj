@@ -26,10 +26,6 @@
 		148273A618F4A24C004C3623 /* Networker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482739D18F4A24C004C3623 /* Networker.m */; };
 		148273A718F4A24C004C3623 /* Styler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482739F18F4A24C004C3623 /* Styler.m */; };
 		148273A818F4A24C004C3623 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148273A118F4A24C004C3623 /* LoginViewController.m */; };
-		148273AC18F4A54A004C3623 /* repo.png in Resources */ = {isa = PBXBuildFile; fileRef = 148273AB18F4A54A004C3623 /* repo.png */; };
-		148273AE18F4A5D9004C3623 /* repo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 148273AD18F4A5D9004C3623 /* repo2.png */; };
-		148273B118F4A6D9004C3623 /* commit.png in Resources */ = {isa = PBXBuildFile; fileRef = 148273AF18F4A6D9004C3623 /* commit.png */; };
-		148273B218F4A6D9004C3623 /* repo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 148273B018F4A6D9004C3623 /* repo3.png */; };
 		148273B618F4A7D2004C3623 /* TwilioContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148273B518F4A7D2004C3623 /* TwilioContactViewController.m */; };
 		29B24DEA257E435485773310 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3EC16FAF4149BD8DFCE032 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -75,10 +71,6 @@
 		1482739F18F4A24C004C3623 /* Styler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Styler.m; sourceTree = "<group>"; };
 		148273A018F4A24C004C3623 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		148273A118F4A24C004C3623 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		148273AB18F4A54A004C3623 /* repo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = repo.png; path = images/repo.png; sourceTree = "<group>"; };
-		148273AD18F4A5D9004C3623 /* repo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = repo2.png; path = images/repo2.png; sourceTree = "<group>"; };
-		148273AF18F4A6D9004C3623 /* commit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = commit.png; path = images/commit.png; sourceTree = "<group>"; };
-		148273B018F4A6D9004C3623 /* repo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = repo3.png; path = images/repo3.png; sourceTree = "<group>"; };
 		148273B418F4A7D2004C3623 /* TwilioContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwilioContactViewController.h; sourceTree = "<group>"; };
 		148273B518F4A7D2004C3623 /* TwilioContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwilioContactViewController.m; sourceTree = "<group>"; };
 		1F0258CBF45647029E6ADD6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -207,10 +199,6 @@
 		148273AA18F4A540004C3623 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				148273AF18F4A6D9004C3623 /* commit.png */,
-				148273B018F4A6D9004C3623 /* repo3.png */,
-				148273AD18F4A5D9004C3623 /* repo2.png */,
-				148273AB18F4A54A004C3623 /* repo.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -328,11 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1447AA9518AD8DCE00140D43 /* Images.xcassets in Resources */,
-				148273B218F4A6D9004C3623 /* repo3.png in Resources */,
-				148273AC18F4A54A004C3623 /* repo.png in Resources */,
 				1447AA8718AD8DCE00140D43 /* InfoPlist.strings in Resources */,
-				148273AE18F4A5D9004C3623 /* repo2.png in Resources */,
-				148273B118F4A6D9004C3623 /* commit.png in Resources */,
 				1447AA9018AD8DCE00140D43 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,8 +507,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gittext/gittext-Prefix.pch";
 				INFOPLIST_FILE = "gittext/gittext-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -539,8 +524,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gittext/gittext-Prefix.pch";
 				INFOPLIST_FILE = "gittext/gittext-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
