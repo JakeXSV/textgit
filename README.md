@@ -16,7 +16,6 @@ NSString *const TwilioNumber        = @"2621235555";
 todo (for CS657)
 ====
 * add icon
-* fix tab bar icons
 
 improvements (future)
 ============
