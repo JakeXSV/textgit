@@ -98,7 +98,6 @@ NSString *const SegueToGitHubDataView = @"successfulAuth";
     
         //NSCFArray -> NSMutableArray
         for (int i=0; i<[responseObject count]; i++) { [self.tempNotifications addObject:([responseObject objectAtIndex:(i)])]; }
-        NSLog(@"%d",[self.tempNotifications count]);
         [self performSegueWithIdentifier:SegueToGitHubDataView sender:self];
     
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -116,6 +115,7 @@ NSString *const SegueToGitHubDataView = @"successfulAuth";
         GithubDataViewController* wc = segue.destinationViewController;
         wc.repoDictionaryArray = self.tempRepos;
         wc.notificationDictionaryArray = self.tempNotifications;
+        wc.localNetworker = self.localNetworker;
     }
     [self.activityIndicator removeFromSuperview];
 }

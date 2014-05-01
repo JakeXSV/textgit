@@ -33,12 +33,18 @@
     [self initializeStyles];
     [self initializeDelegatee];
     self.messageTextView.text = [self.dataToSend stringByAppendingString:@" <- check this out!"];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 # pragma Initializers
 
 -(void)initializeLocalData{
     self.localStyler = [[Styler alloc]init];
+    self.localAlerter = [[Alerter alloc]init];
     self.localNetworker = [[Networker alloc]init];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
@@ -70,21 +76,37 @@
     return YES;
 }
 
+-(void)dismissKeyboard {
+    [self.messageTextView resignFirstResponder];
+}
+
 # pragma SMS handling
 
 -(IBAction)sendMessage{
-    AFHTTPRequestOperationManager *manager = [self.localNetworker getTwilioConfiguredManager];
-    NSDictionary *parameters = @{@"Body": self.messageTextView.text, @"To": self.contactTextField.text, @"From": [self.localNetworker getTwilioFromNumber]};
-    [manager POST:[self.localNetworker getTwilioSMSURL] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if([self validPhoneNumber] && [self validMessage]){
+        AFHTTPRequestOperationManager *manager = [self.localNetworker getTwilioConfiguredManager];
+        NSDictionary *parameters = @{@"Body": self.messageTextView.text, @"To": self.contactTextField.text, @"From": [self.localNetworker getTwilioFromNumber]};
+        [manager POST:[self.localNetworker getTwilioSMSURL] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"JSON: %@", responseObject);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        [[self.localAlerter createAlert:(@"Error.") messageText:(@"Invalid phone number or message.") buttonText:(@"Ok")] show];
+    }
 }
 
 -(IBAction)cancel{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(BOOL)validPhoneNumber{
+    return (self.contactTextField.text.length == 10 && ![self.contactTextField.text isEqualToString:@"911"]);
+}
+
+-(BOOL)validMessage{
+    return self.messageTextView.text.length>0;
 }
 
 @end

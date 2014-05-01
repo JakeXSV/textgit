@@ -20,5 +20,6 @@
 @property(nonatomic, weak) IBOutlet UITableView* tableView;
 @property(nonatomic, strong) NSMutableArray* repoDictionaryArray;
 @property(nonatomic, strong) NSMutableArray* notificationDictionaryArray;
+@property(nonatomic, strong) Networker* localNetworker;
 
 @end

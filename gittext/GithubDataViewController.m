@@ -19,7 +19,6 @@ NSString *const TwilioContactViewId     = @"ContactView";
 @interface GithubDataViewController ()
 @property(nonatomic, strong) NSString* currentlyViewing;
 @property(nonatomic, strong) Styler* localStyler;
-@property(nonatomic, strong) Networker* localNetworker;
 @property(nonatomic, strong) UIRefreshControl* refreshControl;
 @end
 
@@ -57,29 +56,21 @@ NSString *const TwilioContactViewId     = @"ContactView";
 #pragma mark - Table View Delegate/DS
 
 - (void)refreshTable {
-    
         AFHTTPRequestOperationManager *manager = [self.localNetworker getGitHubConfiguredManager];
         [manager GET:[self.localNetworker getReposURL] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
             self.repoDictionaryArray = [[NSMutableArray alloc]init];
             for (int i=0; i<[responseObject count]; i++) { [self.repoDictionaryArray addObject:([responseObject objectAtIndex:(i)])]; }
-            [self.refreshControl endRefreshing];
-            [self.tableView reloadData];
+            [manager GET:[self.localNetworker getNotificationsURL] parameters:@{@"all":@"true"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                self.notificationDictionaryArray = [[NSMutableArray alloc]init];
+                for (int i=0; i<[responseObject count]; i++) { [self.notificationDictionaryArray addObject:([responseObject objectAtIndex:(i)])]; }
+                [self.refreshControl endRefreshing];
+                [self.tableView reloadData];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Error: %@", error);
+                
+            }];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
-
-        }];
-
-        manager = [self.localNetworker getGitHubConfiguredManager];
-        [manager GET:[self.localNetworker getNotificationsURL] parameters:@{@"all":@"true"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            self.notificationDictionaryArray = [[NSMutableArray alloc]init];
-            for (int i=0; i<[responseObject count]; i++) { [self.notificationDictionaryArray addObject:([responseObject objectAtIndex:(i)])]; }
-            [self.refreshControl endRefreshing];
-            [self.tableView reloadData];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-
         }];
 }
 
