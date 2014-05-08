@@ -142,29 +142,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KP-JT-BRj">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KP-JT-BRj">
                                 <rect key="frame" x="20" y="28" width="34" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="qp0-oT-Gda"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCL-ig-Djr">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCL-ig-Djr">
                                 <rect key="frame" x="20" y="62" width="82" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="xu3-GR-usc"/>
+                                    <constraint firstAttribute="height" constant="21" id="zLQ-Bs-Gld"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="check this out!" translatesAutoresizingMaskIntoConstraints="NO" id="lZI-Si-rVp">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="check this out!" translatesAutoresizingMaskIntoConstraints="NO" id="lZI-Si-rVp">
                                 <rect key="frame" x="20" y="91" width="280" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="M4O-ix-SUt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-LG-Hxf" customClass="FUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-LG-Hxf" customClass="FUIButton">
                                 <rect key="frame" x="225" y="530" width="75" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="EIe-6o-gzg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="19"/>
                                 <state key="normal" title="textgit!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,9 +186,13 @@
                                     <action selector="sendMessage" destination="ICy-vz-20M" eventType="touchUpInside" id="f7b-MX-CXb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa2-6N-R2V" customClass="FUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa2-6N-R2V" customClass="FUIButton">
                                 <rect key="frame" x="20" y="530" width="75" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="HN9-da-xd4"/>
+                                    <constraint firstAttribute="height" constant="25" id="wwz-pW-bpW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="19"/>
                                 <state key="normal" title="cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -184,7 +201,7 @@
                                     <action selector="cancel" destination="ICy-vz-20M" eventType="touchUpInside" id="MBF-WN-sqO"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2625555555" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKN-iA-70k">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2625555555" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKN-iA-70k">
                                 <rect key="frame" x="62" y="24" width="238" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="14"/>
@@ -192,6 +209,24 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fFE-YH-lh7" firstAttribute="top" secondItem="Xa2-6N-R2V" secondAttribute="bottom" constant="13" id="0ok-zU-DYK"/>
+                            <constraint firstItem="5KP-JT-BRj" firstAttribute="top" secondItem="RJj-f3-Bjv" secondAttribute="bottom" constant="8" id="AGu-Wj-269"/>
+                            <constraint firstItem="iCL-ig-Djr" firstAttribute="top" secondItem="5KP-JT-BRj" secondAttribute="bottom" constant="13" id="AdD-l2-D6n"/>
+                            <constraint firstItem="pdt-LG-Hxf" firstAttribute="trailing" secondItem="lZI-Si-rVp" secondAttribute="trailing" id="G1T-DI-hSh"/>
+                            <constraint firstItem="5KP-JT-BRj" firstAttribute="leading" secondItem="Ipc-4q-jtP" secondAttribute="leading" constant="20" symbolic="YES" id="KAS-f8-tfV"/>
+                            <constraint firstItem="iCL-ig-Djr" firstAttribute="top" secondItem="iKN-iA-70k" secondAttribute="bottom" constant="8" symbolic="YES" id="LXL-l0-z36"/>
+                            <constraint firstItem="lZI-Si-rVp" firstAttribute="trailing" secondItem="iKN-iA-70k" secondAttribute="trailing" id="TIw-m9-MaY"/>
+                            <constraint firstItem="pdt-LG-Hxf" firstAttribute="top" secondItem="Xa2-6N-R2V" secondAttribute="top" id="b3W-KK-OFM"/>
+                            <constraint firstItem="iKN-iA-70k" firstAttribute="leading" secondItem="5KP-JT-BRj" secondAttribute="trailing" constant="8" symbolic="YES" id="dJo-C7-2f5"/>
+                            <constraint firstItem="lZI-Si-rVp" firstAttribute="leading" secondItem="Xa2-6N-R2V" secondAttribute="leading" id="fS3-5h-Doa"/>
+                            <constraint firstItem="iKN-iA-70k" firstAttribute="top" secondItem="RJj-f3-Bjv" secondAttribute="bottom" constant="4" id="fww-D6-5x5"/>
+                            <constraint firstAttribute="trailing" secondItem="iKN-iA-70k" secondAttribute="trailing" constant="20" symbolic="YES" id="q3W-TH-E5b"/>
+                            <constraint firstItem="lZI-Si-rVp" firstAttribute="top" secondItem="iCL-ig-Djr" secondAttribute="bottom" constant="8" symbolic="YES" id="tic-al-Aiv"/>
+                            <constraint firstItem="Xa2-6N-R2V" firstAttribute="bottom" secondItem="pdt-LG-Hxf" secondAttribute="bottom" id="viZ-T9-5VK"/>
+                            <constraint firstItem="iCL-ig-Djr" firstAttribute="leading" secondItem="5KP-JT-BRj" secondAttribute="leading" id="xdz-yk-jdd"/>
+                            <constraint firstItem="lZI-Si-rVp" firstAttribute="leading" secondItem="iCL-ig-Djr" secondAttribute="leading" id="zUe-aW-n7t"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SX9-Tv-Luh"/>
                     <connections>
