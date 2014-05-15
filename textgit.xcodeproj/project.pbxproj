@@ -31,9 +31,10 @@
 		148273A718F4A24C004C3623 /* Styler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482739F18F4A24C004C3623 /* Styler.m */; };
 		148273A818F4A24C004C3623 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148273A118F4A24C004C3623 /* LoginViewController.m */; };
 		148273B618F4A7D2004C3623 /* TwilioContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148273B518F4A7D2004C3623 /* TwilioContactViewController.m */; };
-		14EA63511910565000EF9493 /* repository.png in Resources */ = {isa = PBXBuildFile; fileRef = 14EA63501910565000EF9493 /* repository.png */; };
-		14EA63531910570100EF9493 /* alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 14EA63521910570100EF9493 /* alert.png */; };
 		14EED2FA191C2F7900A83E76 /* launch6401136.png in Resources */ = {isa = PBXBuildFile; fileRef = 14EED2F8191C2F7900A83E76 /* launch6401136.png */; };
+		2378A87819244D4F0099EF49 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 2378A87619244D4F0099EF49 /* notification.png */; };
+		2378A87919244D4F0099EF49 /* repo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2378A87719244D4F0099EF49 /* repo.png */; };
+		2378A87B19244E7C0099EF49 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2378A87A19244E7C0099EF49 /* Default-568h@2x.png */; };
 		29B24DEA257E435485773310 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3EC16FAF4149BD8DFCE032 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -84,10 +85,11 @@
 		148273A118F4A24C004C3623 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		148273B418F4A7D2004C3623 /* TwilioContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwilioContactViewController.h; sourceTree = "<group>"; };
 		148273B518F4A7D2004C3623 /* TwilioContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwilioContactViewController.m; sourceTree = "<group>"; };
-		14EA63501910565000EF9493 /* repository.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repository.png; sourceTree = "<group>"; };
-		14EA63521910570100EF9493 /* alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert.png; sourceTree = "<group>"; };
 		14EED2F8191C2F7900A83E76 /* launch6401136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch6401136.png; sourceTree = SOURCE_ROOT; };
 		1F0258CBF45647029E6ADD6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		2378A87619244D4F0099EF49 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
+		2378A87719244D4F0099EF49 /* repo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repo.png; sourceTree = "<group>"; };
+		2378A87A19244E7C0099EF49 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		1447AA7018AD8DCE00140D43 = {
 			isa = PBXGroup;
 			children = (
+				2378A87A19244E7C0099EF49 /* Default-568h@2x.png */,
 				1447AA8218AD8DCE00140D43 /* gittext */,
 				1447AAA118AD8DCE00140D43 /* gittextTests */,
 				1447AA7B18AD8DCE00140D43 /* Frameworks */,
@@ -222,13 +225,13 @@
 		14EA634F1910565000EF9493 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2378A87619244D4F0099EF49 /* notification.png */,
+				2378A87719244D4F0099EF49 /* repo.png */,
 				145C87AC191C367600680F8C /* launch640960.png */,
 				14EED2F8191C2F7900A83E76 /* launch6401136.png */,
 				141FC604191C2DAB005EC9EB /* icon58.png */,
 				141FC605191C2DAB005EC9EB /* icon80.png */,
 				141FC606191C2DAB005EC9EB /* icon120.png */,
-				14EA63521910570100EF9493 /* alert.png */,
-				14EA63501910565000EF9493 /* repository.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -337,10 +340,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				141FC608191C2DAB005EC9EB /* icon80.png in Resources */,
-				14EA63531910570100EF9493 /* alert.png in Resources */,
+				2378A87B19244E7C0099EF49 /* Default-568h@2x.png in Resources */,
+				2378A87919244D4F0099EF49 /* repo.png in Resources */,
 				141FC609191C2DAB005EC9EB /* icon120.png in Resources */,
+				2378A87819244D4F0099EF49 /* notification.png in Resources */,
 				1447AA9518AD8DCE00140D43 /* Images.xcassets in Resources */,
-				14EA63511910565000EF9493 /* repository.png in Resources */,
 				141FC607191C2DAB005EC9EB /* icon58.png in Resources */,
 				14EED2FA191C2F7900A83E76 /* launch6401136.png in Resources */,
 				145C87AD191C367600680F8C /* launch640960.png in Resources */,
@@ -487,7 +491,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -519,7 +523,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -533,7 +537,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gittext/textgit-Prefix.pch";
 				INFOPLIST_FILE = "gittext/textgit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = textgit;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -548,7 +552,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gittext/textgit-Prefix.pch";
 				INFOPLIST_FILE = "gittext/textgit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = textgit;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -558,7 +562,7 @@
 		1447AAAF18AD8DCE00140D43 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/gittext.app/gittext";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/textgit.app/textgit";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -580,7 +584,7 @@
 		1447AAB018AD8DCE00140D43 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/gittext.app/gittext";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/textgit.app/textgit";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
