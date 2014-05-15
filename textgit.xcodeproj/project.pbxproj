@@ -89,7 +89,7 @@
 		1F0258CBF45647029E6ADD6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		2378A87619244D4F0099EF49 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
 		2378A87719244D4F0099EF49 /* repo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repo.png; sourceTree = "<group>"; };
-		2378A87A19244E7C0099EF49 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2378A87A19244E7C0099EF49 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,9 +120,8 @@
 		1447AA7018AD8DCE00140D43 = {
 			isa = PBXGroup;
 			children = (
-				2378A87A19244E7C0099EF49 /* Default-568h@2x.png */,
-				1447AA8218AD8DCE00140D43 /* gittext */,
-				1447AAA118AD8DCE00140D43 /* gittextTests */,
+				1447AA8218AD8DCE00140D43 /* textgit */,
+				1447AAA118AD8DCE00140D43 /* textgitTests */,
 				1447AA7B18AD8DCE00140D43 /* Frameworks */,
 				1447AA7A18AD8DCE00140D43 /* Products */,
 				1F0258CBF45647029E6ADD6A /* Pods.xcconfig */,
@@ -150,7 +149,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1447AA8218AD8DCE00140D43 /* gittext */ = {
+		1447AA8218AD8DCE00140D43 /* textgit */ = {
 			isa = PBXGroup;
 			children = (
 				1482739618F4A24C004C3623 /* AppDelegate.h */,
@@ -164,6 +163,7 @@
 				148273A918F4A533004C3623 /* Resources */,
 				1447AA8318AD8DCE00140D43 /* Supporting Files */,
 			);
+			name = textgit;
 			path = gittext;
 			sourceTree = "<group>";
 		};
@@ -178,12 +178,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1447AAA118AD8DCE00140D43 /* gittextTests */ = {
+		1447AAA118AD8DCE00140D43 /* textgitTests */ = {
 			isa = PBXGroup;
 			children = (
 				1447AAA718AD8DCE00140D43 /* gittextTests.m */,
 				1447AAA218AD8DCE00140D43 /* Supporting Files */,
 			);
+			name = textgitTests;
 			path = gittextTests;
 			sourceTree = "<group>";
 		};
@@ -225,6 +226,7 @@
 		14EA634F1910565000EF9493 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2378A87A19244E7C0099EF49 /* Default-568h@2x.png */,
 				2378A87619244D4F0099EF49 /* notification.png */,
 				2378A87719244D4F0099EF49 /* repo.png */,
 				145C87AC191C367600680F8C /* launch640960.png */,

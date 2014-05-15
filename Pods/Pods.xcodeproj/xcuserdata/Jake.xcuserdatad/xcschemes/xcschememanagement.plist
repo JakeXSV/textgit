@@ -8,49 +8,31 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-FlatUIKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>Pods-TouchJSON.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>27593345969F4BC6A9028590</key>
+		<key>2114F644E74244628CB24A11</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E3FA37B33A84660A60F4410</key>
+		<key>A2B58693FEA04C17B3FABE8D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC27CFB4C7CC4FB892560D70</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F1BDE9716C4C42338BFAA585</key>
+		<key>E004EB5A3B834740BE9F5A48</key>
 		<dict>
 			<key>primary</key>
 			<true/>

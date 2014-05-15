@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E2FB6E3D-3A6E-4015-AE39-AF0A3DFFB93C</string>
+	<string>55B9863E-3FB9-4799-84AE-D94D45149CE8</string>
 	<key>IDESourceControlProjectName</key>
-	<string>gittext</string>
+	<string>textgit</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B9F9E377-91CA-489B-9D6B-33F39E6C4882</key>
 		<string>https://github.com/Jakehp/textgit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>gittext.xcworkspace</string>
+	<string>textgit.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B9F9E377-91CA-489B-9D6B-33F39E6C4882</key>

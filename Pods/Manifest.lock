@@ -19,16 +19,13 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - FlatUIKit (1.3)
-  - TouchJSON (1.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - FlatUIKit
-  - TouchJSON (~> 1.1)
 
 SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
   FlatUIKit: 3b32b52bb3c266477709cfe4812ab2c877ae942b
-  TouchJSON: 9e53f4df141b7f972766292b00b46bccf29f179a
 
 COCOAPODS: 0.32.1
