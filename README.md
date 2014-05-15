@@ -13,11 +13,7 @@ NSString *const TwilioAuth          = @"345";
 NSString *const TwilioNumber        = @"2621235555";
 ```
 
-todo (for CS657)
-====
-* add icon
-
-improvements (future)
+improvements
 ============
 * Use twilio capability tokens (more secure)
 * Use oauth for github api (more secure)
